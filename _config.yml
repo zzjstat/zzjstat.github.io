@@ -24,19 +24,18 @@ repository               : "academicpages/academicpages.github.io"
 author:
   # Biographic information
   avatar           : "profile.png"
-  name             : "Zheng zejing"
+  name             : "Zheng Zejing"
   pronouns         : # example: "she/her"  
   bio              : "Short biography"
   location         : "Beijing, China"
-  employer         : "Beijing normal university"
+  employer         : "Beijing Normal University"
   uri              : # URL
   email            : "zzjstat2023@163.com" 
 
   # Academic websites
-  academia         : # URL
 
   # Repositories and software development
-  github           : "academicpages"
+  github           : "https://github.com/zzjstat"
 
 
   # Social media
