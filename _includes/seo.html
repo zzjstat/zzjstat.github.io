@@ -6,8 +6,10 @@
 {% endif %}
 {% assign seo_url = seo_url | default: site.github.url %}
 
-{% if page.title %}
+{% if page.title and page.title != site.title %}
   {% assign seo_title = page.title | append: " " | append: site.title_separator | append: " " | append: site.title %}
+{% else %}
+  {% assign seo_title = page.title | default: site.title %}
 {% endif %}
 
 {% if seo_title %}
@@ -118,11 +120,12 @@
 <meta property="og:title" content="{{ page.title | default: site.title | markdownify | strip_html | strip_newlines | escape_once }}">
 {% if page.date %}
   <meta property="og:type" content="article">
+{% else %}
+  <meta property="og:type" content="website">
 {% endif %}
-{% if page.excerpt %}
-  <meta property="og:description" name="description" content="{{ seo_description }}">
-{% elsif site.og_description %}
-  <meta property="og:description" name="description" content="{{ site.og_description }}">
+{% assign seo_og_description = page.description | default: page.excerpt | default: site.og_description | default: site.description %}
+{% if seo_og_description %}
+  <meta property="og:description" content="{{ seo_og_description | markdownify | strip_html | strip_newlines | escape_once }}">
 {% endif %}
 {% if seo_url %}
   <meta property="og:url" content="{{ page.url | prepend: seo_url | replace: "/index.html", "/" }}">

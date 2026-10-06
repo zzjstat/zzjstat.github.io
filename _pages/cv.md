@@ -7,58 +7,28 @@ redirect_from:
   - /resume
 ---
 
-{% include base_path %}
+## Current position
 
-Education
-======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+PhD student in Statistics<br>
+School of Statistics, {{ site.author.employer }}
 
-Work experience
-======
-* Spring 2024: Academic Pages Collaborator
-  * GitHub University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+## Research
 
-* Fall 2015: Research Assistant
-  * GitHub University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+Statistical transfer learning across heterogeneous datasets, with interests in selective information sharing, heterogeneous feature spaces, and high-dimensional statistical guarantees.
 
-* Summer 2015: Research Assistant
-  * GitHub University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
-  
-Skills
-======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+Broader interests include dependence structures, network data, and mathematical statistics.
 
-Publications
-======
-  <ul>{% for post in site.publications reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Talks
-======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul>
-  
-Teaching
-======
-  <ul>{% for post in site.teaching reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
+## Publications
+
+{% assign published_papers = site.publications | where: "category", "publications" | sort: "date" | reverse %}
+{% assign preprints = site.publications | where: "category", "preprints" | sort: "date" | reverse %}
+{% if published_papers.size > 0 %}
+{% include paper-list.html papers=published_papers compact_status=true %}
+{% endif %}
+{% if preprints.size > 0 %}
+{% include paper-list.html papers=preprints compact_status=true %}
+{% endif %}
+
+## Contact
+
+{% if site.author.email %}[{{ site.author.email }}](mailto:{{ site.author.email }}){% endif %}{% if site.author.email and site.author.github %} · {% endif %}{% if site.author.github %}[GitHub](https://github.com/{{ site.author.github }}){% endif %}

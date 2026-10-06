@@ -9,52 +9,43 @@
 # Basic Site Settings
 locale                   : "en-US"
 site_theme               : "default" # Currently available options are "default", "air"
-title                    : "Zheng Zejing / Site Title"
+title                    : "Zheng Zejing"
 title_separator          : "-"
 name                     : &name "Zheng Zejing"
-description              : &description "Your Name's academic portfolio"   # Update this with a general description of your site, this is the default if not overridden by a page
-url                      : https://academicpages.github.io # The base hostname & protocol for your site e.g. "https://[your GitHub username].github.io",
-                                                           # or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
+description              : &description "Statistical transfer learning across heterogeneous datasets, with selective information sharing, heterogeneous feature spaces, and high-dimensional guarantees."
+url                      : "https://zzjstat.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
-repository               : "academicpages/academicpages.github.io"
+repository               : "zzjstat/zzjstat.github.io"
 
 # Site Author - The following control what appear as part of the author content on the side bar.
 #               If a field is blank the icon and link will not appear, otherwise it will be shown.
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
+  avatar           : # Add a real portrait when available.
   name             : "Zheng Zejing"
-  pronouns         : # example: "she/her"  
-  bio              : "Short biography"
+  bio              : "PhD student in mathematical statistics"
   location         : "Beijing, China"
   employer         : "Beijing Normal University"
-  uri              : # URL
   email            : "zzjstat2023@163.com" 
 
-  # Academic websites
-
-  # Repositories and software development
-  github           : "https://github.com/zzjstat"
-
-
-  # Social media
-  
+  # Use usernames here; the template supplies the GitHub URL.
+  github           : "zzjstat"
 
 # Publication Category - The following the list of publication categories and their headings
 publication_category:
-  books:
-    title: 'Books'
-  manuscripts:
-    title: 'Journal Articles'    
-  conferences:
-    title: 'Conference Papers'
+  publications:
+    title: 'Publications'
+  preprints:
+    title: 'Preprints'
+  working_papers:
+    title: 'Working papers'
 
 # Site Settings
 teaser                   :  # filename of teaser fallback teaser image placed in /images/ for social media previews
 breadcrumbs              : false # true, false (default)
 words_per_minute         : 160
-future                   : true
+future                   : false
 read_more                : "disabled" # if enabled, adds "Read more" links to excerpts
 talkmap_link             : false      #change to true to add link to talkmap on talks page
 comments:
@@ -96,25 +87,18 @@ yandex_site_verification :
 
 
 # Social Sharing
-twitter:
-  username               : &twitter
-facebook:
-  username               :
-  app_id                 :
-  publisher              :
+twitter                  :
+facebook                 :
 og_image                 :  # Social media default site image
 og_description           :  # Social media default site image description
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
-social:
-  type                   : # Person or Organization (defaults to Person)
-  name                   : # If the user or organization name differs from the site's name
-  links: # An array of links to social media profiles
+social                   : # Add only confirmed social profiles.
 
 
 # Analytics
 analytics:
-  provider               :  "false" # false (default), "google", "google-universal", "google-analytics-4", "custom"
+  provider               : false
   google:
     tracking_id          :
 
@@ -123,7 +107,6 @@ analytics:
 include:
   - .htaccess
   - _pages
-  - files
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"
@@ -151,6 +134,13 @@ exclude:
   - README
   - tmp
   - vendor
+  # Keep retained template assets and developer tooling out of the public site.
+  - images/themes
+  - markdown_generator
+  - scripts
+  - CONTRIBUTING.md
+  - README.md
+  - docker-compose.yaml
 keep_files:
   - .git
   - .svn
@@ -181,16 +171,16 @@ kramdown:
 # These settings control the types of collections used by the template
 collections:
   teaching:
-    output: true
+    output: false
     permalink: /:collection/:path/
   publications:
     output: true
     permalink: /:collection/:path/
   portfolio:
-    output: true
+    output: false
     permalink: /:collection/:path/
   talks:
-    output: true
+    output: false
     permalink: /:collection/:path/
 
 
@@ -204,9 +194,9 @@ defaults:
       layout: single
       author_profile: true
       read_time: true
-      comments: true
-      share: true
-      related: true
+      comments: false
+      share: false
+      related: false
   # _pages
   - scope:
       path: ""
@@ -230,8 +220,8 @@ defaults:
     values:
       layout: single
       author_profile: true
-      share: true
-      comments: true
+      share: false
+      comments: false
   # _portfolio
   - scope:
       path: ""
@@ -294,19 +284,16 @@ whitelist:
 #  - <base_path/categories/my-awesome-category/index.html ~> path: /categories/
 #  - <base_path/my-awesome-category/index.html ~> path: /
 category_archive:
-  type: liquid
-  path: /categories/
+  type:
+  path:
 tag_archive:
-  type: liquid
-  path: /tags/
+  type:
+  path:
 # https://github.com/jekyll/jekyll-archives
 # jekyll-archives:
 #   enabled:
 #     - categories
 #     - tags
-#   layouts:
-#     category: archive-taxonomy
-#     tag: archive-taxonomy
 #   permalinks:
 #     category: /categories/:name/
 #     tag: /tags/:name/

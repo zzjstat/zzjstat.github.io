@@ -1,0 +1,8 @@
+{% assign themes = site.data.research.themes | where_exp: "theme", "theme.title != nil" | where_exp: "theme", "theme.title != empty" | where_exp: "theme", "theme.question != nil" | where_exp: "theme", "theme.question != empty" %}
+{% for theme in themes %}
+  <article class="research-theme" id="{{ theme.id | escape }}">
+    <p class="theme-label"><span aria-hidden="true">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span> {{ theme.title | escape }}</p>
+    {% if include.standalone %}<h2 class="theme-question">{{ theme.question | escape }}</h2>{% else %}<h3 class="theme-question">{{ theme.question | escape }}</h3>{% endif %}
+    {% if theme.description %}<p>{{ theme.description | escape }}</p>{% endif %}
+  </article>
+{% endfor %}

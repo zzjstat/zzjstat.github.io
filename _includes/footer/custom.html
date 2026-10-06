@@ -1,19 +1,44 @@
 <!-- start custom footer snippets -->
 
-<a href="/sitemap/">Sitemap</a>
-
 <!-- Support for MatJax -->
-<script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+{% if page.math or content contains '$$' or content contains '\(' or content contains '\[' %}
 <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script"></script>
+{% endif %}
 
 <!-- Support for Plotly -->
+{% if page.plotly or content contains 'language-plotly' %}
 <script defer src='https://cdnjs.cloudflare.com/ajax/libs/plotly.js/3.0.1/plotly.min.js'></script>
+<script type="module">
+    import { plotlyDarkLayout, plotlyLightLayout } from '{{ base_path }}/assets/js/theme.js';
+    const charts = [];
+    document.querySelectorAll('pre > code.language-plotly').forEach(code => {
+        const data = JSON.parse(code.textContent);
+        const element = document.createElement('div');
+        code.parentElement.after(element);
+        code.parentElement.hidden = true;
+        charts.push({element, data});
+    });
+    function drawCharts() {
+        if (!window.Plotly) return;
+        const theme = document.documentElement.dataset.theme === 'dark' ? plotlyDarkLayout : plotlyLightLayout;
+        charts.forEach(({element, data}) => {
+            const layout = {...data.layout, template: {...theme, ...data.layout?.template}};
+            Plotly.react(element, data.data, layout, {responsive: true});
+        });
+    }
+    if (document.readyState === 'complete') drawCharts();
+    else window.addEventListener('load', drawCharts, {once: true});
+    document.addEventListener('notebook:themechange', drawCharts);
+</script>
+{% endif %}
 
 <!-- Support for Mermaid -->
+{% if page.mermaid or content contains 'language-mermaid' %}
 <script type="module">
     import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
     mermaid.initialize({startOnLoad:true, theme:'default'});
     await mermaid.run({querySelector:'code.language-mermaid'});
 </script>
+{% endif %}
 
 <!-- end custom footer snippets -->

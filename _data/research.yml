@@ -1,0 +1,35 @@
+# Homepage themes within the central transfer-learning research program.
+# Conceptual descriptions approved by the author; public details are on /research/.
+themes:
+  - id: selective-information-sharing
+    title: Selective information sharing
+    question: "Which source information is actually useful for a target statistical problem?"
+    description: "I study how transfer procedures can identify and use informative source data while limiting harmful borrowing."
+
+  - id: heterogeneous-feature-spaces
+    title: Heterogeneous feature spaces
+    question: "What can be transferred when studies do not measure the same variables?"
+    description: "I am interested in transfer learning when auxiliary datasets contain different or incomplete sets of features."
+
+  - id: high-dimensional-guarantees
+    title: High-dimensional guarantees
+    question: "How do heterogeneity, sparsity, and usable source information affect statistical accuracy?"
+    description: "I study statistical guarantees that make explicit when additional source information improves estimation and when it does not."
+
+# A conceptual overview of ongoing work, without unpublished technical details.
+current_research_overview: "My current work studies how useful information can be shared selectively across heterogeneous statistical problems. I am particularly interested in settings where similarity is uneven across variables, parameters, or structural components."
+
+# Reserved for real active projects. Add only confirmed descriptions.
+# Each entry needs a title and description; a public URL is optional.
+current_research: []
+
+# Provisional questions supplied by the author, not claimed results.
+blackboard:
+  - question: "When can a source be useful for one component of a statistical problem but harmful for another?"
+    provisional: true
+  - question: "How should transfer learning adapt when the amount of shared information varies across variables or parameters?"
+    provisional: true
+  - question: "What is the right notion of effective source sample size when information is only partially transferable?"
+    provisional: true
+  - question: "How far can selective borrowing be extended beyond regression to structured and dependent data?"
+    provisional: true

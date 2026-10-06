@@ -1,36 +1,40 @@
 ---
 layout: archive
-title: "Publications"
+title: "Papers"
 permalink: /publications/
 author_profile: true
 ---
 
-{% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
-{% endif %}
+{% comment %}
+Real paper entries remain in _publications/. Set category to publications,
+preprints, or working_papers, and selected: true to feature a paper on Home.
+Do not infer a paper's status from the presence of a date or venue.
+{% endcomment %}
 
-{% include base_path %}
-
-<!-- New style rendering if publication categories are defined -->
-{% if site.publication_category %}
-  {% for category in site.publication_category  %}
-    {% assign title_shown = false %}
-    {% for post in site.publications reversed %}
-      {% if post.category != category[0] %}
-        {% continue %}
-      {% endif %}
-      {% unless title_shown %}
-        <h2>{{ category[1].title }}</h2><hr />
-        {% assign title_shown = true %}
-      {% endunless %}
-      {% include archive-single.html %}
-    {% endfor %}
+{% if site.publications.size > 0 %}
+  {% for category in site.publication_category %}
+    {% assign category_papers = site.publications | where: "category", category[0] | sort: "date" | reverse %}
+    {% if category_papers.size > 0 %}
+    <section aria-labelledby="{{ category[0] | slugify }}">
+      <h2 id="{{ category[0] | slugify }}">{{ category[1].title }}</h2>
+      {% include paper-list.html papers=category_papers %}
+    </section>
+    {% endif %}
   {% endfor %}
+  {% assign unclassified_papers = "" | split: "," %}
+  {% for paper in site.publications %}
+    {% unless site.publication_category[paper.category] %}
+      {% assign unclassified_papers = unclassified_papers | push: paper %}
+    {% endunless %}
+  {% endfor %}
+  {% if unclassified_papers.size > 0 %}
+  <section aria-labelledby="status-to-confirm">
+    <h2 id="status-to-confirm">Status to be confirmed</h2>
+    {% include paper-list.html papers=unclassified_papers %}
+  </section>
+  {% endif %}
 {% else %}
-  {% for post in site.publications reversed %}
-    {% include archive-single.html %}
-  {% endfor %}
+  <p>No papers are listed here yet. Entries will be grouped into Publications, Preprints, and Working papers as they are added.</p>
 {% endif %}
-
 
 

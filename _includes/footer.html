@@ -1,25 +1,11 @@
-{% include base_path %}
-
-{% if site.author.github or site.author.bitbucket or site.atom_feed.hide != true %}
-<div class="page__footer-follow">
-  <ul class="social-icons">
-    {% if site.data.ui-text[site.locale].follow_label %}
-      <li><strong>{{ site.data.ui-text[site.locale].follow_label }}</strong></li>
-    {% endif %}
-    {% if site.author.github %}
-      <li><a href="http://github.com/{{ site.author.github }}"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a></li>
-    {% endif %}
-    {% if site.author.bitbucket %}
-      <li><a href="http://bitbucket.org/{{ site.author.bitbucket }}"><i class="fab fa-bitbucket" aria-hidden="true"></i> Bitbucket</a></li>
-    {% endif %}
-    {% if site.atom_feed.hide != true %}
-    <li><a href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ base_path }}/feed.xml{% endif %}"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].feed_label | default: "Feed" }}</a></li>
-    {% endif %}
-  </ul>
-</div>
-{% endif %}
-
-<div class="page__footer-copyright">
-  &copy; {{ site.time | date: '%Y' }} {{ site.name | default: site.title }}, {{ site.data.ui-text[site.locale].powered_by | default: "Powered by" }} <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/academicpages/academicpages.github.io">AcademicPages</a>, a fork of <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.<br />
-  Site last updated {{ "now" | date: '%Y-%m-%d' }}
+<div class="notebook-footer">
+  <p class="footer-contact">{% if site.author.email %}<a href="mailto:{{ site.author.email | escape }}">Email</a>{% endif %}{% if site.author.email and site.author.github %} <span aria-hidden="true">·</span> {% endif %}{% if site.author.github %}<a href="https://github.com/{{ site.author.github | escape }}">GitHub</a>{% endif %}</p>
+  <p class="footer-colophon">
+    <svg class="network-mark" viewBox="0 0 48 28" width="48" height="28" aria-hidden="true" focusable="false">
+      <path d="M5 19L18 6L31 20L43 8M5 19L31 20M18 6L43 8" fill="none" stroke="currentColor" stroke-width="1"/>
+      <g fill="currentColor"><circle cx="5" cy="19" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="31" cy="20" r="2"/><circle cx="43" cy="8" r="2"/></g>
+    </svg>
+    <span>&copy; {{ site.time | date: '%Y' }} {{ site.name | default: site.title | escape }}. Made with <a href="https://jekyllrb.com/">Jekyll</a> and asymptotics.</span>
+  </p>
+  <p class="footer-credit">Built on <a href="https://github.com/academicpages/academicpages.github.io">Academic Pages</a> and <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/">Minimal Mistakes</a>.</p>
 </div>
