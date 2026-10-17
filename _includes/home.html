@@ -48,7 +48,7 @@
     {% assign resource_text = resource[page.lang] | default: resource.en %}
     <li>
       <article>
-        <h3><a href="{{ resource.url | escape }}">{{ resource_text.title | escape }}</a></h3>
+        <h3><a href="{{ resource_text.url | default: resource.url | escape }}">{{ resource_text.title | escape }}</a></h3>
         <p>{{ resource_text.description | escape }}</p>
       </article>
     </li>

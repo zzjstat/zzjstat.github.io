@@ -1,6 +1,6 @@
 # PDF download is temporarily disabled; the web CV remains available.
 # pdf_url: /files/Zejing_Zheng_Academic_CV.pdf
-updated: "2026-10-17"
+updated: "2026-10-18"
 featured_paper:
   title: Transfer Learning with Heterogeneous Feature Spaces in Linear Regression
   url: /publications/heterogeneous-feature-spaces/
@@ -27,7 +27,9 @@ en:
       degree: B.S. in Statistics
       institution: Beijing Normal University
   awards:
-    - period: May 2026
+    # The forum award ceremony was held on 11 April 2026:
+    # https://stat.ecnu.edu.cn/88/44/c9707a755780/page.htm
+    - period: April 2026
       title: Travel Award
       detail: Mao Shisong Statistical Education Doctoral Forum
       featured_paper: true
@@ -83,7 +85,7 @@ zh-CN:
       degree: 统计学学士
       institution: 北京师范大学
   awards:
-    - period: 2026年5月
+    - period: 2026年4月
       title: 差旅资助
       detail: 茆诗松统计教育博士生论坛
       featured_paper: true

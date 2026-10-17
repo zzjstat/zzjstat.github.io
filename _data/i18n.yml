@@ -32,6 +32,7 @@ en:
   cv: Curriculum vitae
   published: Published
   preprint: Preprint
+  equal_contribution: Equal contribution
   categories:
     publications: Publications
     preprints: Preprints
@@ -83,6 +84,7 @@ zh-CN:
   cv: 个人简历
   published: 已发表
   preprint: 预印本
+  equal_contribution: 同等贡献
   categories:
     publications: 已发表论文
     preprints: 预印本

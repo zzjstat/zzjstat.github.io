@@ -1,6 +1,7 @@
 {% include base_path %}
 {% assign ui = site.data.i18n[page.lang] | default: site.data.i18n.en %}
 {% assign cv = site.data.cv[page.lang] | default: site.data.cv.en %}
+{% assign teaching_resource = site.data.resources.r_slides[page.lang] | default: site.data.resources.r_slides.en %}
 {% assign featured_paper = site.publications | where: 'url', site.data.cv.featured_paper.url | first %}
 {% assign featured_paper_url = featured_paper.url %}
 {% if page.lang == 'zh-CN' and featured_paper.translation_zh %}{% assign featured_paper_url = featured_paper.translation_zh %}{% endif %}
@@ -36,7 +37,7 @@
 <section class="cv-section" aria-labelledby="cv-{{ section }}">
   <h2 id="cv-{{ section }}">{{ cv[section_heading] | escape }}</h2>
   {% if section == 'teaching' %}
-  <p class="cv-teaching-note">{{ cv.teaching_note | escape }} <a href="{{ site.data.resources.r_slides.url | escape }}">{{ cv.teaching_slides | escape }}</a></p>
+  <p class="cv-teaching-note">{{ cv.teaching_note | escape }} <a href="{{ teaching_resource.url | default: site.data.resources.r_slides.url | escape }}">{{ cv.teaching_slides | escape }}</a></p>
   <ul class="cv-teaching-entries" role="list">
   {% for item in cv.teaching %}
     <li><span class="cv-period">{{ item.period | escape }}</span> · {{ item.title | escape }} · <span class="cv-instructor">{{ item.detail | escape }}</span></li>

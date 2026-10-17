@@ -1,6 +1,7 @@
 r_slides:
-  url: https://github.com/zzjstat/R-slides
+  url: https://github.com/zzjstat/R-slides#course-catalog
   en:
+    url: https://github.com/zzjstat/R-slides#course-catalog-en
     title: R Programming and Statistical Computing Slides
     description: Chinese-language slides for the R programming component of Introduction to Statistics B, covering R basics, data structures, and introductory statistical analysis.
   zh-CN:

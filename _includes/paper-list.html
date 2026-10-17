@@ -8,7 +8,15 @@
   <li>
     <article>
       <{{ paper_heading }} lang="en"><a href="{{ paper_url | prepend: base_path }}">{{ paper.title | escape }}</a></{{ paper_heading }}>
-      {% if paper.authors %}<p class="paper-authors" lang="en">{{ paper.authors | escape | replace: "Zejing Zheng", "<strong>Zejing Zheng</strong>" }}</p>{% endif %}
+      {% if paper.authors %}
+      {% assign author_line = paper.authors | escape %}
+      {% for author in paper.equal_contributors %}
+        {% assign author_name = author | escape %}
+        {% capture marked_author %}{{ author_name }}<sup>*</sup>{% endcapture %}
+        {% assign author_line = author_line | replace: author_name, marked_author %}
+      {% endfor %}
+      <p class="paper-authors" lang="en">{{ author_line | replace: "Zejing Zheng", "<strong>Zejing Zheng</strong>" }}{% if paper.equal_contributors.size > 0 %} <span class="paper-contribution" lang="{{ page.lang | default: 'en' }}">(* {{ ui.equal_contribution | escape }})</span>{% endif %}</p>
+      {% endif %}
       {% assign paper_category = site.publication_category[paper.category] %}
       {% if paper_category %}<p class="paper-metadata">{% if include.compact_status and paper.category == 'publications' %}{{ ui.published | escape }}{% elsif include.compact_status and paper.category == 'preprints' %}{{ ui.preprint | escape }}{% else %}{{ ui.categories[paper.category] | default: paper_category.title | escape }}{% endif %}{% if paper.submission_status %} · {{ ui.submission_statuses[paper.submission_status] | default: paper.submission_status | escape }}{% endif %}{% unless paper.undated %}{% if paper.year %} · {{ paper.year | escape }}{% elsif paper.date %} · {{ paper.date | date: "%Y" }}{% endif %}{% endunless %}{% if paper.venue %} · <span lang="en">{{ paper.venue | escape }}</span>{% endif %}</p>{% endif %}
       {% unless include.hide_excerpt %}{% if paper.excerpt %}{{ paper.excerpt | markdownify }}{% endif %}{% endunless %}
@@ -16,7 +24,7 @@
       <p class="paper-links">
         {% if paper.paperurl %}<a href="{{ paper.paperurl | escape }}">{% if paper.category == 'preprints' and paper.paperurl contains 'arxiv.org' %}arXiv{% else %}{{ ui.paper | escape }}{% endif %}<span class="visually-hidden" lang="en">: {{ paper.title | escape }}</span></a>{% endif %}
         {% if paper.slidesurl %}<a href="{{ paper.slidesurl | escape }}">{{ ui.slides | escape }}</a>{% endif %}
-        {% if paper.bibtexurl %}<a href="{{ paper.bibtexurl | escape }}">BibTeX</a>{% endif %}
+        {% if paper.bibtexurl %}<a href="{% unless paper.bibtexurl contains '://' %}{{ base_path }}{% endunless %}{{ paper.bibtexurl | escape }}" download>BibTeX<span class="visually-hidden" lang="en">: {{ paper.title | escape }}</span></a>{% endif %}
       </p>
       {% endif %}
     </article>
