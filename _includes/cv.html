@@ -40,7 +40,7 @@
   <p class="cv-teaching-note">{{ cv.teaching_note | escape }} <a href="{{ teaching_resource.url | default: site.data.resources.r_slides.url | escape }}">{{ cv.teaching_slides | escape }}</a></p>
   <ul class="cv-teaching-entries" role="list">
   {% for item in cv.teaching %}
-    <li><span class="cv-period">{{ item.period | escape }}</span> · {{ item.title | escape }} · <span class="cv-instructor">{{ item.detail | escape }}</span></li>
+    <li><span class="cv-period">{{ item.period | escape }}</span> · {{ item.title | escape }} · <span class="cv-instructor">{{ cv.instructor_label | escape }}{% unless page.lang == 'zh-CN' %}&#32;{% endunless %}<span class="cv-instructor-name">{{ item.instructor | escape }}</span></span></li>
   {% endfor %}
   </ul>
   {% else %}

@@ -15,6 +15,7 @@ en:
   teaching_heading: Teaching experience
   teaching_note: Teaching assistant duties for Introduction to Statistics B included R programming instruction.
   teaching_slides: R teaching slides
+  instructor_label: "Instructor:"
   service_heading: Academic service
   contact_heading: Contact
   paper_label: Paper
@@ -48,19 +49,19 @@ en:
   teaching:
     - period: Spring 2026
       title: Teaching Assistant, Nonparametric Statistics
-      detail: "Instructor: Shaochuan Lu"
+      instructor: Shaochuan Lu
     - period: Fall 2025
       title: Teaching Assistant, Introduction to Statistics B
-      detail: "Instructor: Hui Li"
+      instructor: Hui Li
     - period: Fall 2025
       title: Teaching Assistant, Introduction to Statistics B
-      detail: "Instructor: Xiaogang Duan"
+      instructor: Xiaogang Duan
     - period: Fall 2024
       title: Teaching Assistant, Introduction to Statistics B
-      detail: "Instructor: Xin Li"
+      instructor: Xin Li
     - period: Fall 2023
       title: Teaching Assistant, Introduction to Statistics B
-      detail: "Instructor: Jin Chen"
+      instructor: Jin Chen
   service: "Referee: Journal of the American Statistical Association (JASA)."
 zh-CN:
   download: 下载英文学术简历（PDF）
@@ -73,6 +74,7 @@ zh-CN:
   teaching_heading: 助教经历
   teaching_note: 《统计学导论 B》的助教工作包括 R 语言教学。
   teaching_slides: R 语言教学课件
+  instructor_label: "授课教师："
   service_heading: 学术服务
   contact_heading: 联系方式
   paper_label: 相关论文
@@ -104,17 +106,17 @@ zh-CN:
   teaching:
     - period: 2026年春季
       title: 非参数统计，助教
-      detail: "授课教师：吕绍川"
+      instructor: 吕绍川
     - period: 2025年秋季
       title: 统计学导论 B，助教
-      detail: "授课教师：李慧"
+      instructor: 李慧
     - period: 2025年秋季
       title: 统计学导论 B，助教
-      detail: "授课教师：段小刚"
+      instructor: 段小刚
     - period: 2024年秋季
       title: 统计学导论 B，助教
-      detail: "授课教师：李昕"
+      instructor: 李昕
     - period: 2023年秋季
       title: 统计学导论 B，助教
-      detail: "授课教师：陈瑾"
+      instructor: 陈瑾
   service: 审稿：Journal of the American Statistical Association (JASA)。
