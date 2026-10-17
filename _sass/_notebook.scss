@@ -355,6 +355,15 @@ html {
   .cv-download { font-size: 1rem; margin-bottom: 0.35rem; }
   .cv-updated { font-size: 0.8125rem; color: var(--muted); }
   .cv-teaching-note { font-size: 1rem; }
+  .cv-teaching-entries {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li { font-size: 1rem; line-height: 1.7; margin: 0 0 0.75rem; }
+    li:last-child { margin-bottom: 0; }
+    .cv-period { color: var(--muted); }
+    .cv-instructor { white-space: nowrap; }
+  }
   .cv-section { margin-top: 2.5rem; }
   .cv-section > h2 { font-size: 1.6rem; margin: 0 0 1.25rem; }
   #cv-papers > section > h3 { margin: 1.5rem 0 0.75rem; font-size: 1.1rem; }
