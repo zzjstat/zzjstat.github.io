@@ -2,6 +2,9 @@
 layout: archive
 title: "Transfer Learning with Heterogeneous Feature Spaces in Linear Regression"
 collection: publications
+lang: en
+translation_zh: /zh/publications/heterogeneous-feature-spaces/
+translation_en: /publications/heterogeneous-feature-spaces/
 category: preprints
 # Display the public preprint; keep journal submission status hidden for now.
 # submission_status: submitted

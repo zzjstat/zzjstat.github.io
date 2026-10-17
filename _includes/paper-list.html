@@ -3,9 +3,11 @@
 {% assign paper_heading = include.heading_level | default: 'h3' %}
 <ul class="paper-list" role="list">
   {% for paper in include.papers %}
+  {% assign paper_url = paper.url %}
+  {% if page.lang == 'zh-CN' and paper.translation_zh %}{% assign paper_url = paper.translation_zh %}{% endif %}
   <li>
     <article>
-      <{{ paper_heading }} lang="en"><a href="{{ paper.url | prepend: base_path }}">{{ paper.title | escape }}</a></{{ paper_heading }}>
+      <{{ paper_heading }} lang="en"><a href="{{ paper_url | prepend: base_path }}">{{ paper.title | escape }}</a></{{ paper_heading }}>
       {% if paper.authors %}<p class="paper-authors" lang="en">{{ paper.authors | escape | replace: "Zejing Zheng", "<strong>Zejing Zheng</strong>" }}</p>{% endif %}
       {% assign paper_category = site.publication_category[paper.category] %}
       {% if paper_category %}<p class="paper-metadata">{% if include.compact_status and paper.category == 'publications' %}{{ ui.published | escape }}{% elsif include.compact_status and paper.category == 'preprints' %}{{ ui.preprint | escape }}{% else %}{{ ui.categories[paper.category] | default: paper_category.title | escape }}{% endif %}{% if paper.submission_status %} · {{ ui.submission_statuses[paper.submission_status] | default: paper.submission_status | escape }}{% endif %}{% unless paper.undated %}{% if paper.year %} · {{ paper.year | escape }}{% elsif paper.date %} · {{ paper.date | date: "%Y" }}{% endif %}{% endunless %}{% if paper.venue %} · <span lang="en">{{ paper.venue | escape }}</span>{% endif %}</p>{% endif %}

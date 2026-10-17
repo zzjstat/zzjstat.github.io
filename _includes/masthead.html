@@ -17,6 +17,7 @@
         {% assign current = false %}
         {% if page.url contains link_url %}{% assign current = true %}{% endif %}
         {% if link.url == '/research/' and page.collection == 'publications' %}{% assign current = true %}{% endif %}
+        {% if link.url == '/research/' and page.paper_page %}{% assign current = true %}{% endif %}
         {% if link.url == '/blog/' and page.collection == 'posts' %}{% assign current = true %}{% endif %}
         <li><a href="{% unless link_url contains '://' %}{{ base_path }}{% endunless %}{{ link_url }}"{% if current %} aria-current="{% if page.url == link_url %}page{% else %}location{% endif %}"{% endif %}>{{ ui.nav[link.title] | default: link.title | escape }}</a></li>
       {% endfor %}

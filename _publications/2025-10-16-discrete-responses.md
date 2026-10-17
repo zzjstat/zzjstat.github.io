@@ -2,6 +2,9 @@
 layout: archive
 title: "Transfer learning for high dimensional data with discrete responses"
 collection: publications
+lang: en
+translation_zh: /zh/publications/discrete-responses/
+translation_en: /publications/discrete-responses/
 category: publications
 permalink: /publications/discrete-responses/
 authors: "Zejing Zheng, Shengbing Zheng, and Junlong Zhao"

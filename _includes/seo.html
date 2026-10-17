@@ -6,10 +6,12 @@
 {% endif %}
 {% assign seo_url = seo_url | default: site.github.url %}
 
-{% if page.title and page.title != site.title %}
-  {% assign seo_title = page.title | append: " " | append: site.title_separator | append: " " | append: site.title %}
+{% assign seo_site_title = site.title %}
+{% if page.lang == 'zh-CN' %}{% assign seo_site_title = site.author.name_zh | default: site.title %}{% endif %}
+{% if page.title and page.title != seo_site_title %}
+  {% assign seo_title = page.title | append: " " | append: site.title_separator | append: " " | append: seo_site_title %}
 {% else %}
-  {% assign seo_title = page.title | default: site.title %}
+  {% assign seo_title = page.title | default: seo_site_title %}
 {% endif %}
 
 {% if seo_title %}
@@ -20,7 +22,7 @@
   {% assign canonical_url = page.url | replace: "index.html", "" | prepend: site.url %}
 {% endif %}
 
-<title>{{ seo_title | default: site.title }}{% if paginator %}{% unless paginator.page == 1 %} {{ site.title_separator }} {{ site.data.ui-text[site.locale].page | default: "Page" }} {{ paginator.page }}{% endunless %}{% endif %}</title>
+<title>{{ seo_title | default: seo_site_title }}{% if paginator %}{% unless paginator.page == 1 %} {{ site.title_separator }} {{ site.data.ui-text[site.locale].page | default: "Page" }} {{ paginator.page }}{% endunless %}{% endif %}</title>
 
 {% assign seo_description = page.description | default: page.excerpt | default: site.description %}
 {% if seo_description %}
@@ -118,8 +120,8 @@
 {% assign page_locale = page.og_locale %}
 {% unless page_locale %}{% if page.lang == 'zh-CN' %}{% assign page_locale = 'zh_CN' %}{% elsif page.lang == 'en' %}{% assign page_locale = 'en_US' %}{% endif %}{% endunless %}
 <meta property="og:locale" content="{{ page_locale | default: site.locale | default: 'en_US' }}">
-<meta property="og:site_name" content="{{ site.title }}"> 
-<meta property="og:title" content="{{ page.title | default: site.title | markdownify | strip_html | strip_newlines | escape_once }}">
+<meta property="og:site_name" content="{{ seo_site_title | escape }}">
+<meta property="og:title" content="{{ page.title | default: seo_site_title | markdownify | strip_html | strip_newlines | escape_once }}">
 {% if page.date %}
   <meta property="og:type" content="article">
 {% else %}

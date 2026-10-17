@@ -2,6 +2,8 @@ en:
   home_url: /
   navigation_label: Primary
   language_label: Language
+  feed_title: RSS feed
+  browser_upgrade: 'You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.'
   skip_link: Skip to content
   nav:
     Home: Home
@@ -51,6 +53,8 @@ zh-CN:
   home_url: /zh/
   navigation_label: 主导航
   language_label: 语言
+  feed_title: RSS 订阅
+  browser_upgrade: '你正在使用<strong>过旧的</strong>浏览器。请<a href="https://browsehappy.com/">升级浏览器</a>以获得更好的浏览体验。'
   skip_link: 跳至正文
   nav:
     Home: 首页

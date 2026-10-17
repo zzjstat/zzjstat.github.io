@@ -2,6 +2,8 @@
 {% assign ui = site.data.i18n[page.lang] | default: site.data.i18n.en %}
 {% assign cv = site.data.cv[page.lang] | default: site.data.cv.en %}
 {% assign featured_paper = site.publications | where: 'url', site.data.cv.featured_paper.url | first %}
+{% assign featured_paper_url = featured_paper.url %}
+{% if page.lang == 'zh-CN' and featured_paper.translation_zh %}{% assign featured_paper_url = featured_paper.translation_zh %}{% endif %}
 <div class="cv-page">
 {% if site.data.cv.pdf_url %}<p class="cv-download"><a href="{{ site.data.cv.pdf_url | prepend: base_path }}">{{ cv.download | escape }}</a></p>{% endif %}
 <p class="cv-updated">{{ cv.updated | escape }}: {% if page.lang == 'zh-CN' %}{{ site.data.cv.updated | date: "%Y年%m月%d日" }}{% else %}{{ site.data.cv.updated | date: "%B %d, %Y" }}{% endif %}</p>
@@ -48,7 +50,7 @@
       <div>
         <h3>{{ item.title | escape }}</h3>
         <p class="cv-detail">{{ item.detail | escape }}</p>
-        {% if item.featured_paper and featured_paper %}<p class="cv-detail">{{ cv.paper_label | escape }}: <a href="{{ featured_paper.url | prepend: base_path }}" lang="en">{{ featured_paper.title | escape }}</a></p>{% endif %}
+        {% if item.featured_paper and featured_paper %}<p class="cv-detail">{{ cv.paper_label | escape }}: <a href="{{ featured_paper_url | prepend: base_path }}" lang="en">{{ featured_paper.title | escape }}</a></p>{% endif %}
       </div>
     </li>
   {% endfor %}
