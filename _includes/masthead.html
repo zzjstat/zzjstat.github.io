@@ -1,7 +1,7 @@
 {% include base_path %}
 {% assign ui = site.data.i18n[page.lang] | default: site.data.i18n.en %}
-{% assign language_zh_url = page.translation_zh | default: '/' %}
-{% assign language_en_url = page.translation_en | default: '/en/' %}
+{% assign language_zh_url = page.translation_zh | default: '/zh/' %}
+{% assign language_en_url = page.translation_en | default: '/' %}
 {% if page.collection == 'posts' %}
 {% unless page.translation_zh %}{% assign language_zh_url = '/blog/' %}{% endunless %}
 {% unless page.translation_en %}{% assign language_en_url = '/en/blog/' %}{% endunless %}

@@ -1,5 +1,5 @@
 en:
-  home_url: /en/
+  home_url: /
   navigation_label: Primary
   language_label: Language
   skip_link: Skip to content
@@ -48,7 +48,7 @@ en:
   built_on: Built on
   and: and
 zh-CN:
-  home_url: /
+  home_url: /zh/
   navigation_label: 主导航
   language_label: 语言
   skip_link: 跳至正文

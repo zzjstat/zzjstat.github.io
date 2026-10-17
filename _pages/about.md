@@ -1,14 +1,17 @@
 ---
 permalink: /
-title: "郑泽靖"
+title: "Zejing Zheng"
 author_profile: true
 home: true
-lang: zh-CN
-og_locale: zh_CN
-description: "郑泽靖，北京师范大学统计学院统计学博士研究生，导师为赵俊龙教授。研究兴趣包括高维数据、迁移学习与网络数据。"
+lang: en
+og_locale: en_US
+translation_zh: /zh/
+translation_en: /
+description: "Zejing Zheng, PhD student in Statistics at Beijing Normal University, advised by Professor Junlong Zhao. Research interests: high-dimensional data, transfer learning, and network data."
 redirect_from: 
   - /about/
   - /about.html
+  - /en/
 ---
 
 {% include home.html %}
