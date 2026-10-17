@@ -33,6 +33,7 @@
 {% assign section_heading = section | append: '_heading' %}
 <section class="cv-section" aria-labelledby="cv-{{ section }}">
   <h2 id="cv-{{ section }}">{{ cv[section_heading] | escape }}</h2>
+  {% if section == 'teaching' %}<p class="cv-teaching-note">{{ cv.teaching_note | escape }} <a href="{{ site.data.resources.r_slides.url | escape }}">{{ cv.teaching_slides | escape }}</a></p>{% endif %}
   <ul class="cv-entries" role="list">
   {% for item in cv[section] %}
     <li>

@@ -13,6 +13,8 @@ en:
   awards_heading: Honors and awards
   presentations_heading: Presentations
   teaching_heading: Teaching experience
+  teaching_note: Teaching assistant duties for Introduction to Statistics B included R programming instruction.
+  teaching_slides: R teaching slides
   service_heading: Academic service
   contact_heading: Contact
   paper_label: Paper
@@ -67,6 +69,8 @@ zh-CN:
   awards_heading: 荣誉与奖励
   presentations_heading: 学术报告
   teaching_heading: 助教经历
+  teaching_note: 《统计学导论 B》的助教工作包括 R 语言教学。
+  teaching_slides: R 语言教学课件
   service_heading: 学术服务
   contact_heading: 联系方式
   paper_label: 相关论文

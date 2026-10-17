@@ -15,6 +15,7 @@ en:
   news: News
   news_related_paper: Related paper
   all_papers: All papers
+  resources: Resources
   blog: Blog
   blog_intro: A space for notes and ideas.
   blog_empty_title: No posts yet.
@@ -63,6 +64,7 @@ zh-CN:
   news: 近期动态
   news_related_paper: 相关论文
   all_papers: 全部论文
+  resources: 资料
   blog: 博客
   blog_intro: 留一处空间，记录文字与想法。
   blog_empty_title: 暂时还没有文章。

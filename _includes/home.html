@@ -39,6 +39,24 @@
 </section>
 {% endif %}
 
+{% if site.data.resources.size > 0 %}
+<section class="home-section" aria-labelledby="resources">
+  <h2 id="resources">{{ ui.resources | escape }}</h2>
+  <ul class="resource-list" role="list">
+    {% for entry in site.data.resources %}
+    {% assign resource = entry[1] %}
+    {% assign resource_text = resource[page.lang] | default: resource.en %}
+    <li>
+      <article>
+        <h3><a href="{{ resource.url | escape }}">{{ resource_text.title | escape }}</a></h3>
+        <p>{{ resource_text.description | escape }}</p>
+      </article>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
+
 <section class="home-section" aria-labelledby="blog-updates">
   <h2 id="blog-updates">{{ ui.blog | escape }}</h2>
   {% include blog-list.html limit=3 heading_level='h3' compact=true %}
