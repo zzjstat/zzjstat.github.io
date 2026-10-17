@@ -1,17 +1,19 @@
 {% include base_path %}
+{% assign ui = site.data.i18n[page.lang] | default: site.data.i18n.en %}
+{% assign paper_heading = include.heading_level | default: 'h3' %}
 <ul class="paper-list" role="list">
   {% for paper in include.papers %}
   <li>
     <article>
-      <h3><a href="{{ paper.url | prepend: base_path }}">{{ paper.title | escape }}</a></h3>
-      {% if paper.authors %}<p class="paper-authors">{{ paper.authors | escape | replace: "Zejing Zheng", "<strong>Zejing Zheng</strong>" }}</p>{% endif %}
+      <{{ paper_heading }} lang="en"><a href="{{ paper.url | prepend: base_path }}">{{ paper.title | escape }}</a></{{ paper_heading }}>
+      {% if paper.authors %}<p class="paper-authors" lang="en">{{ paper.authors | escape | replace: "Zejing Zheng", "<strong>Zejing Zheng</strong>" }}</p>{% endif %}
       {% assign paper_category = site.publication_category[paper.category] %}
-      {% if paper_category %}<p class="paper-metadata">{% if include.compact_status and paper.category == 'publications' %}Published{% elsif include.compact_status and paper.category == 'preprints' %}Preprint{% else %}{{ paper_category.title | escape }}{% endif %}{% if paper.year %} · {{ paper.year | escape }}{% elsif paper.date %} · {{ paper.date | date: "%Y" }}{% endif %}{% if paper.venue %} · {{ paper.venue | escape }}{% endif %}</p>{% endif %}
-      {% if paper.excerpt %}{{ paper.excerpt | markdownify }}{% endif %}
+      {% if paper_category %}<p class="paper-metadata">{% if include.compact_status and paper.category == 'publications' %}{{ ui.published | escape }}{% elsif include.compact_status and paper.category == 'preprints' %}{{ ui.preprint | escape }}{% else %}{{ ui.categories[paper.category] | default: paper_category.title | escape }}{% endif %}{% if paper.submission_status %} · {{ ui.submission_statuses[paper.submission_status] | default: paper.submission_status | escape }}{% endif %}{% unless paper.undated %}{% if paper.year %} · {{ paper.year | escape }}{% elsif paper.date %} · {{ paper.date | date: "%Y" }}{% endif %}{% endunless %}{% if paper.venue %} · <span lang="en">{{ paper.venue | escape }}</span>{% endif %}</p>{% endif %}
+      {% unless include.hide_excerpt %}{% if paper.excerpt %}{{ paper.excerpt | markdownify }}{% endif %}{% endunless %}
       {% if paper.paperurl or paper.slidesurl or paper.bibtexurl %}
       <p class="paper-links">
-        {% if paper.paperurl %}<a href="{{ paper.paperurl | escape }}">{% if paper.category == 'preprints' and paper.paperurl contains 'arxiv.org' %}arXiv{% else %}Paper{% endif %}<span class="visually-hidden">: {{ paper.title | escape }}</span></a>{% endif %}
-        {% if paper.slidesurl %}<a href="{{ paper.slidesurl | escape }}">Slides</a>{% endif %}
+        {% if paper.paperurl %}<a href="{{ paper.paperurl | escape }}">{% if paper.category == 'preprints' and paper.paperurl contains 'arxiv.org' %}arXiv{% else %}{{ ui.paper | escape }}{% endif %}<span class="visually-hidden" lang="en">: {{ paper.title | escape }}</span></a>{% endif %}
+        {% if paper.slidesurl %}<a href="{{ paper.slidesurl | escape }}">{{ ui.slides | escape }}</a>{% endif %}
         {% if paper.bibtexurl %}<a href="{{ paper.bibtexurl | escape }}">BibTeX</a>{% endif %}
       </p>
       {% endif %}

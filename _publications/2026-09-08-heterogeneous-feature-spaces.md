@@ -3,6 +3,8 @@ layout: archive
 title: "Transfer Learning with Heterogeneous Feature Spaces in Linear Regression"
 collection: publications
 category: preprints
+# Display the public preprint; keep journal submission status hidden for now.
+# submission_status: submitted
 permalink: /publications/heterogeneous-feature-spaces/
 authors: "Zejing Zheng, Rui Huang, and Junlong Zhao"
 date: 2026-09-08

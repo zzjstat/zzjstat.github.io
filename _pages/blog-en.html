@@ -1,0 +1,19 @@
+---
+layout: archive
+permalink: /en/blog/
+title: "Blog"
+author_profile: true
+lang: en
+og_locale: en_US
+translation_zh: /blog/
+translation_en: /en/blog/
+description: "Zejing Zheng's blog."
+redirect_from:
+  - /en/notes/
+---
+
+{% include base_path %}
+{% assign ui = site.data.i18n[page.lang] %}
+<p class="blog-intro">{{ ui.blog_intro | escape }}</p>
+{% include blog-list.html %}
+{% if site.posts.size > 0 %}<p class="blog-feed"><a href="{{ base_path }}/feed.xml">{{ ui.blog_rss | escape }}</a></p>{% endif %}

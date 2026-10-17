@@ -1,0 +1,114 @@
+# PDF download is temporarily disabled; the web CV remains available.
+# pdf_url: /files/Zejing_Zheng_Academic_CV.pdf
+updated: "2026-10-17"
+featured_paper:
+  title: Transfer Learning with Heterogeneous Feature Spaces in Linear Regression
+  url: /publications/heterogeneous-feature-spaces/
+en:
+  download: Download academic CV (PDF)
+  updated: Last updated
+  education_heading: Education
+  interests_heading: Research interests
+  papers_heading: Publications and manuscripts
+  awards_heading: Honors and awards
+  presentations_heading: Presentations
+  teaching_heading: Teaching experience
+  service_heading: Academic service
+  contact_heading: Contact
+  paper_label: Paper
+  education:
+    - period: 2023–present
+      degree: Ph.D. in Statistics (direct entry)
+      institution: Beijing Normal University
+      detail: 'Expected 2028; advised by <a href="https://stat.bnu.edu.cn/ywjl/232859.htm">Professor <strong>Junlong Zhao</strong></a>.'
+    - period: 2019–2023
+      degree: B.S. in Statistics
+      institution: Beijing Normal University
+  awards:
+    - period: May 2026
+      title: Travel Award
+      detail: Mao Shisong Statistical Education Doctoral Forum
+      featured_paper: true
+    - period: "2023"
+      title: Outstanding Undergraduate Thesis
+      detail: Beijing Normal University
+  presentations:
+    - period: May 2026
+      title: Oral presentation
+      detail: 27th Beijing–Tianjin–Hebei Young Scholars Symposium on Probability and Statistics, Beijing Institute of Technology, Beijing, China
+      featured_paper: true
+    - period: April 2026
+      title: Oral presentation
+      detail: Annual Meeting of the Young Statisticians Branch, Chengdu, China
+      featured_paper: true
+  teaching:
+    - period: Spring 2026
+      title: Teaching Assistant, Nonparametric Statistics
+      detail: "Instructor: Shaochuan Lu"
+    - period: Fall 2025
+      title: Teaching Assistant, Introduction to Statistics B
+      detail: "Instructor: Hui Li"
+    - period: Fall 2025
+      title: Teaching Assistant, Introduction to Statistics B
+      detail: "Instructor: Xiaogang Duan"
+    - period: Fall 2024
+      title: Teaching Assistant, Introduction to Statistics B
+      detail: "Instructor: Xin Li"
+    - period: Fall 2023
+      title: Teaching Assistant, Introduction to Statistics B
+      detail: "Instructor: Jin Chen"
+  service: "Referee: Journal of the American Statistical Association (JASA)."
+zh-CN:
+  download: 下载英文学术简历（PDF）
+  updated: 更新日期
+  education_heading: 教育经历
+  interests_heading: 研究兴趣
+  papers_heading: 论文与稿件
+  awards_heading: 荣誉与奖励
+  presentations_heading: 学术报告
+  teaching_heading: 助教经历
+  service_heading: 学术服务
+  contact_heading: 联系方式
+  paper_label: 相关论文
+  education:
+    - period: 2023年至今
+      degree: 统计学博士研究生（直博）
+      institution: 北京师范大学
+      detail: '预计2028年毕业；导师：<a href="https://stat.bnu.edu.cn/ywjl/232859.htm"><strong>赵俊龙</strong>教授</a>。'
+    - period: 2019–2023年
+      degree: 统计学学士
+      institution: 北京师范大学
+  awards:
+    - period: 2026年5月
+      title: 差旅资助
+      detail: Mao Shisong Statistical Education Doctoral Forum
+      featured_paper: true
+    - period: 2023年
+      title: 优秀本科毕业论文
+      detail: 北京师范大学
+  presentations:
+    - period: 2026年5月
+      title: 口头报告
+      detail: 第27届京津冀概率统计青年学者研讨会，北京理工大学，北京
+      featured_paper: true
+    - period: 2026年4月
+      title: 口头报告
+      detail: 青年统计学家分会年会，成都
+      featured_paper: true
+  teaching:
+    - period: 2026年春季
+      title: 非参数统计，助教
+      detail: "授课教师：Shaochuan Lu"
+    - period: 2025年秋季
+      title: 统计学导论 B，助教
+      detail: "授课教师：Hui Li"
+    - period: 2025年秋季
+      title: 统计学导论 B，助教
+      detail: "授课教师：Xiaogang Duan"
+    - period: 2024年秋季
+      title: 统计学导论 B，助教
+      detail: "授课教师：Xin Li"
+    - period: 2023年秋季
+      title: 统计学导论 B，助教
+      detail: "授课教师：Jin Chen"
+  service: 审稿：Journal of the American Statistical Association (JASA)。

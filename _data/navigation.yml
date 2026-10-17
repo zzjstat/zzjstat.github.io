@@ -2,9 +2,15 @@
 main:
   - title: "Research"
     url: /research/
+    url_en: /en/research/
 
-  - title: "Papers"
-    url: /publications/
+  - title: "Blog"
+    url: /blog/
+    url_en: /en/blog/
 
   - title: "CV"
     url: /cv/
+    url_en: /en/cv/
+
+  - title: "GitHub"
+    url: https://github.com/zzjstat

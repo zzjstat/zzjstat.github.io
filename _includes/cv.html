@@ -1,0 +1,60 @@
+{% include base_path %}
+{% assign ui = site.data.i18n[page.lang] | default: site.data.i18n.en %}
+{% assign cv = site.data.cv[page.lang] | default: site.data.cv.en %}
+{% assign featured_paper = site.publications | where: 'url', site.data.cv.featured_paper.url | first %}
+<div class="cv-page">
+{% if site.data.cv.pdf_url %}<p class="cv-download"><a href="{{ site.data.cv.pdf_url | prepend: base_path }}">{{ cv.download | escape }}</a></p>{% endif %}
+<p class="cv-updated">{{ cv.updated | escape }}: {% if page.lang == 'zh-CN' %}{{ site.data.cv.updated | date: "%Y年%m月%d日" }}{% else %}{{ site.data.cv.updated | date: "%B %d, %Y" }}{% endif %}</p>
+
+<section class="cv-section" aria-labelledby="cv-education">
+  <h2 id="cv-education">{{ cv.education_heading | escape }}</h2>
+  <ul class="cv-entries" role="list">
+  {% for item in cv.education %}
+    <li>
+      <p class="cv-period">{{ item.period | escape }}</p>
+      <div><h3>{{ item.institution | escape }}</h3><p>{{ item.degree | escape }}</p>{% if item.detail %}<p class="cv-detail">{{ item.detail }}</p>{% endif %}</div>
+    </li>
+  {% endfor %}
+  </ul>
+</section>
+
+<section class="cv-section" aria-labelledby="cv-interests">
+  <h2 id="cv-interests">{{ cv.interests_heading | escape }}</h2>
+  <p>{{ ui.interests | escape }}</p>
+</section>
+
+<section class="cv-section" aria-labelledby="cv-papers">
+  <h2 id="cv-papers">{{ cv.papers_heading | escape }}</h2>
+  {% include papers.html heading_level='h3' paper_heading_level='h4' %}
+</section>
+
+{% assign cv_sections = 'awards,presentations,teaching' | split: ',' %}
+{% for section in cv_sections %}
+{% assign section_heading = section | append: '_heading' %}
+<section class="cv-section" aria-labelledby="cv-{{ section }}">
+  <h2 id="cv-{{ section }}">{{ cv[section_heading] | escape }}</h2>
+  <ul class="cv-entries" role="list">
+  {% for item in cv[section] %}
+    <li>
+      <p class="cv-period">{{ item.period | escape }}</p>
+      <div>
+        <h3>{{ item.title | escape }}</h3>
+        <p class="cv-detail">{{ item.detail | escape }}</p>
+        {% if item.featured_paper and featured_paper %}<p class="cv-detail">{{ cv.paper_label | escape }}: <a href="{{ featured_paper.url | prepend: base_path }}" lang="en">{{ featured_paper.title | escape }}</a></p>{% endif %}
+      </div>
+    </li>
+  {% endfor %}
+  </ul>
+</section>
+{% endfor %}
+
+<section class="cv-section" aria-labelledby="cv-service">
+  <h2 id="cv-service">{{ cv.service_heading | escape }}</h2>
+  <p>{{ cv.service | escape }}</p>
+</section>
+
+<section class="cv-section" aria-labelledby="cv-contact">
+  <h2 id="cv-contact">{{ cv.contact_heading | escape }}</h2>
+  <p>{% if site.author.email %}<a href="mailto:{{ site.author.email | escape }}">{{ site.author.email | escape }}</a>{% endif %}{% if site.author.email and site.author.github %} · {% endif %}{% if site.author.github %}<a href="https://github.com/{{ site.author.github | escape }}">GitHub</a>{% endif %}</p>
+</section>
+</div>

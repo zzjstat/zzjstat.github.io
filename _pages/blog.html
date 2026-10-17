@@ -1,0 +1,21 @@
+---
+layout: archive
+permalink: /blog/
+title: "博客"
+author_profile: true
+lang: zh-CN
+og_locale: zh_CN
+translation_zh: /blog/
+translation_en: /en/blog/
+description: "郑泽靖的博客。"
+redirect_from:
+  - /notes/
+  - /year-archive/
+  - /wordpress/blog-posts/
+---
+
+{% include base_path %}
+{% assign ui = site.data.i18n[page.lang] %}
+<p class="blog-intro">{{ ui.blog_intro | escape }}</p>
+{% include blog-list.html %}
+{% if site.posts.size > 0 %}<p class="blog-feed"><a href="{{ base_path }}/feed.xml">{{ ui.blog_rss | escape }}</a></p>{% endif %}

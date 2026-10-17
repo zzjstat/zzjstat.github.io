@@ -3,6 +3,7 @@
   const root = document.documentElement;
   const button = document.getElementById('theme-toggle');
   const preference = window.matchMedia('(prefers-color-scheme: dark)');
+  const isChinese = root.lang.toLowerCase().startsWith('zh');
   let saved = null;
   try { saved = localStorage.getItem('theme'); } catch (error) { /* Optional storage. */ }
   let explicit = saved === 'dark' || saved === 'light';
@@ -11,11 +12,15 @@
     root.setAttribute('data-theme', theme);
     if (button) {
       const next = theme === 'dark' ? 'light' : 'dark';
-      const label = `Switch to ${next} mode (currently ${theme} mode)`;
+      const label = isChinese
+        ? `切换为${next === 'dark' ? '深色' : '浅色'}模式（当前为${theme === 'dark' ? '深色' : '浅色'}模式）`
+        : `Switch to ${next} mode (currently ${theme} mode)`;
       button.dataset.mode = theme;
       button.setAttribute('aria-label', label);
       button.setAttribute('title', label);
-      button.querySelector('.theme-toggle-label').textContent = next === 'dark' ? 'Dark mode' : 'Light mode';
+      button.querySelector('.theme-toggle-label').textContent = isChinese
+        ? (next === 'dark' ? '深色模式' : '浅色模式')
+        : (next === 'dark' ? 'Dark mode' : 'Light mode');
     }
     document.dispatchEvent(new CustomEvent('notebook:themechange'));
   }

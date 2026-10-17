@@ -9,10 +9,10 @@
 # Basic Site Settings
 locale                   : "en-US"
 site_theme               : "default" # Currently available options are "default", "air"
-title                    : "Zheng Zejing"
+title                    : "Zejing Zheng"
 title_separator          : "-"
-name                     : &name "Zheng Zejing"
-description              : &description "Statistical transfer learning across heterogeneous datasets, with selective information sharing, heterogeneous feature spaces, and high-dimensional guarantees."
+name                     : &name "Zejing Zheng"
+description              : &description "Zejing Zheng, PhD student in Statistics at Beijing Normal University, advised by Professor Junlong Zhao."
 url                      : "https://zzjstat.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "zzjstat/zzjstat.github.io"
@@ -22,12 +22,13 @@ repository               : "zzjstat/zzjstat.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : # Add a real portrait when available.
-  name             : "Zheng Zejing"
+  avatar           : "zejing-zheng.jpg"
+  name             : "Zejing Zheng"
+  name_zh          : "郑泽靖"
   bio              : "PhD student in mathematical statistics"
   location         : "Beijing, China"
   employer         : "Beijing Normal University"
-  email            : "zzjstat2023@163.com" 
+  email            : "zzjstat23@mail.bnu.edu.cn"
 
   # Use usernames here; the template supplies the GitHub URL.
   github           : "zzjstat"
@@ -38,6 +39,8 @@ publication_category:
     title: 'Publications'
   preprints:
     title: 'Preprints'
+  submitted:
+    title: 'Submitted manuscripts'
   working_papers:
     title: 'Working papers'
 
@@ -191,9 +194,11 @@ defaults:
       path: ""
       type: posts
     values:
-      layout: single
+      layout: post
+      permalink: /blog/:year/:month/:day/:title/
+      lang: zh-CN
       author_profile: true
-      read_time: true
+      read_time: false
       comments: false
       share: false
       related: false

@@ -1,0 +1,26 @@
+{% assign ui = site.data.i18n[page.lang] | default: site.data.i18n.en %}
+{% assign blog_posts = site.posts | sort: 'date' | reverse %}
+{% assign blog_limit = include.limit | default: blog_posts.size %}
+{% assign blog_heading = include.heading_level | default: 'h2' %}
+{% if blog_posts.size > 0 %}
+<ul class="blog-posts" role="list">
+{% for post in blog_posts limit:blog_limit %}
+{% assign post_language = post.lang | default: 'zh-CN' %}
+<li>
+<article>
+  <p class="blog-post-meta"><time datetime="{{ post.date | date_to_xmlschema }}">{% if page.lang == 'zh-CN' %}{{ post.date | date: "%Y年%m月%d日" }}{% else %}{{ post.date | date: "%B %d, %Y" }}{% endif %}</time> · <span lang="{{ post_language | escape }}">{% if post_language == 'en' %}{{ ui.blog_english | escape }}{% else %}{{ ui.blog_chinese | escape }}{% endif %}</span></p>
+  <{{ blog_heading }} lang="{{ post_language | escape }}"><a href="{{ post.url | prepend: base_path }}">{{ post.title | escape }}</a></{{ blog_heading }}>
+  {% assign blog_summary = post.description | default: post.excerpt %}
+  {% if blog_summary %}<p class="blog-post-summary" lang="{{ post_language | escape }}">{{ blog_summary | markdownify | strip_html | truncate: 180 | escape }}</p>{% endif %}
+</article>
+</li>
+{% endfor %}
+</ul>
+{% elsif include.compact %}
+<p class="blog-empty-inline">{{ ui.blog_empty_title | escape }}</p>
+{% else %}
+<div class="blog-empty">
+  <p class="blog-empty-title">{{ ui.blog_empty_title | escape }}</p>
+  <p>{{ ui.blog_empty_text | escape }}</p>
+</div>
+{% endif %}

@@ -1,0 +1,30 @@
+{% assign ui = site.data.i18n[page.lang] | default: site.data.i18n.en %}
+{% assign category_heading = include.heading_level | default: 'h2' %}
+{% comment %}Paper status comes from the explicit category in _publications/.{% endcomment %}
+{% if site.publications.size > 0 %}
+{% for category in site.publication_category %}
+{% assign category_key = category[0] %}
+{% assign category_papers = site.publications | where: "category", category_key | sort: "date" | reverse %}
+{% if category_key == 'submitted' %}{% assign category_papers = category_papers | sort: 'cv_order' %}{% endif %}
+{% if category_papers.size > 0 %}
+<section aria-labelledby="{{ category_key | slugify }}">
+  <{{ category_heading }} id="{{ category_key | slugify }}">{{ ui.categories[category_key] | default: category[1].title | escape }}</{{ category_heading }}>
+  {% include paper-list.html papers=category_papers hide_excerpt=true heading_level=include.paper_heading_level %}
+</section>
+{% endif %}
+{% endfor %}
+{% assign unclassified_papers = "" | split: "," %}
+{% for paper in site.publications %}
+{% unless site.publication_category[paper.category] %}
+{% assign unclassified_papers = unclassified_papers | push: paper %}
+{% endunless %}
+{% endfor %}
+{% if unclassified_papers.size > 0 %}
+<section aria-labelledby="status-to-confirm">
+  <{{ category_heading }} id="status-to-confirm">{{ ui.status_to_confirm | escape }}</{{ category_heading }}>
+  {% include paper-list.html papers=unclassified_papers hide_excerpt=true heading_level=include.paper_heading_level %}
+</section>
+{% endif %}
+{% else %}
+<p>{{ ui.no_papers | escape }}</p>
+{% endif %}

@@ -17,8 +17,8 @@
   --accent: #245d53;
   --rule: #d5dbd3;
   --wash: #f0f2ec;
-  --notebook-serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
-  --notebook-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --notebook-serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, "Songti SC", serif;
+  --notebook-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
   --notebook-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
 }
 
@@ -125,6 +125,15 @@ html {
     }
   }
   .nav-links { display: flex; gap: 1.75rem; }
+  .nav-tools { display: flex; align-items: center; gap: 0.75rem; }
+  .language-switch {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    white-space: nowrap;
+    font-size: 0.8125rem;
+    span { color: var(--muted); }
+  }
   .theme-toggle {
     display: inline-flex;
     align-items: center;
@@ -205,7 +214,7 @@ html {
     &:first-child { padding-top: 0.5rem; }
     &:last-child { border-bottom: 0; }
     article { max-width: 74ch; }
-    h3 {
+    h3, h4 {
       margin: 0 0 0.65rem;
       font-family: var(--notebook-serif);
       font-weight: 400;
@@ -246,77 +255,126 @@ html {
 }
 
 .notebook-home {
-  #main { margin-top: 3.75rem; }
-  .page { max-width: none; }
-  .notebook-hero {
-    max-width: 70ch;
-    margin-left: 4rem;
-    h1 { font-size: clamp(2.75rem, 5.5vw, 4rem); letter-spacing: -0.035em; line-height: 1.15; margin: 0 0 1rem; }
-    .hero-prose { max-width: 60ch; }
-    .hero-affiliation { font-size: 0.9rem; color: var(--muted); line-height: 1.65; margin-bottom: 2rem; }
-    .hero-affiliation a { color: inherit; text-decoration: none; }
-    .hero-affiliation a:hover { text-decoration: underline; }
-    .hero-question {
-      font-family: var(--notebook-serif);
-      font-size: clamp(1.5rem, 2.8vw, 2rem);
-      font-style: italic;
-      line-height: 1.4;
-      color: var(--accent);
-      border-left: 2px solid var(--rule);
-      padding-left: 1.2rem;
-      margin: 1.8rem 0;
+  .notebook-nav, .page__footer { max-width: 48rem; }
+  .notebook-nav { padding: 0.875rem 0; }
+  .nav-links { margin: 0 auto 0 0; padding: 0; list-style: none; }
+  #main { max-width: 48rem; margin-top: 2.5rem; }
+  .page { max-width: 100%; }
+  .home-about {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 11.5rem;
+    grid-template-rows: max-content auto;
+    column-gap: 2rem;
+    row-gap: 1.5rem;
+    h1 {
+      grid-column: 1;
+      grid-row: 1;
+      font-size: clamp(2.25rem, 4vw, 2.75rem);
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+      margin: 0;
     }
-    .hero-links { font-size: 0.9rem; margin: 1.75rem 0 0; }
-    .hero-links span { color: var(--muted); margin: 0 0.5rem; }
+    p { max-width: 65ch; margin-bottom: 1rem; }
+    .home-bio { grid-column: 1; grid-row: 2; min-width: 0; }
+    .home-bio p:last-child { margin-bottom: 0; }
+    .home-portrait {
+      display: block;
+      grid-column: 2;
+      grid-row: 1 / 3;
+      align-self: start;
+      margin: 0;
+      img { display: block; width: 100%; height: auto; margin: 0; border-radius: 0.375rem; }
+    }
   }
-  .notebook-section {
-    margin-top: 4.5rem;
-    padding-top: 1.75rem;
-    border-top: 1px solid var(--rule);
+  .home-section {
+    margin-top: 2.75rem;
     > h2 {
-      font-family: var(--notebook-sans);
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.11em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin: 0 0 1.75rem;
+      font-size: 1.6rem;
+      margin: 0 0 1rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid var(--rule);
     }
   }
-  .theme-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.25rem; }
-  .research-theme {
-    .theme-label { font-size: 0.78rem; color: var(--muted); margin-bottom: 1rem; line-height: 1.5; }
-    .theme-label span { font-family: var(--notebook-mono); color: var(--accent); margin-right: 0.35rem; }
-    .theme-question { font-family: var(--notebook-serif); font-size: 1.55rem; font-weight: 400; line-height: 1.35; margin: 0 0 1rem; }
-    > p:last-child { font-size: 1rem; line-height: 1.7; margin-bottom: 0; }
+  .paper-list > li {
+    padding: 1.1rem 0;
+    border-bottom: 0;
+    &:first-child { padding-top: 0.25rem; }
+    h3 { font-size: 1.25rem; line-height: 1.4; margin-bottom: 0.4rem; }
+    p { margin-bottom: 0.35rem; }
+    .paper-authors { font-size: 0.875rem; }
+    .paper-links { font-size: 0.8125rem; }
   }
-  .prose-section p { max-width: 70ch; }
-  .blackboard-section {
-    border-top: 0;
-    border-left: 2px solid var(--rule);
-    background: var(--wash);
-    background: color-mix(in srgb, var(--wash) 85%, var(--paper));
-    padding: 1.5rem 2rem;
-    > h2 { margin-bottom: 0.75rem; }
-    .section-note { font-size: 0.8125rem; color: var(--muted); margin-bottom: 1.25rem; }
-  }
-  .blackboard-list {
+  .section-link { font-size: 0.875rem; margin: 0.5rem 0 0; }
+  .news-list {
     list-style: none;
     padding: 0;
     margin: 0;
-    li {
-      display: grid;
-      grid-template-columns: 2rem minmax(0, 1fr);
-      gap: 1rem;
-      padding: 0.875rem 0;
-      margin: 0;
-      border-top: 1px solid var(--rule);
-      p { max-width: 65ch; font-family: var(--notebook-serif); font-size: 1.35rem; line-height: 1.5; margin: 0; }
-    }
-    .question-number { font-family: var(--notebook-mono); font-size: 0.75rem; color: var(--accent); padding-top: 0.3rem; }
+    li { display: grid; grid-template-columns: 7rem minmax(0, 1fr); gap: 1.25rem; margin: 0 0 1rem; }
+    li:last-child { margin-bottom: 0; }
+    time { color: var(--muted); font-size: 0.8125rem; padding-top: 0.2rem; }
+    p { font-size: 1rem; line-height: 1.7; margin: 0; }
+    a { white-space: nowrap; }
   }
-  .section-link { font-size: 0.875rem; margin-top: 1.25rem; }
+  .contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li { display: grid; grid-template-columns: 5rem minmax(0, 1fr); gap: 1rem; margin: 0.5rem 0; }
+    .contact-label { color: var(--muted); }
+    a { justify-self: start; }
+  }
   .notes-list time { font-family: var(--notebook-mono); font-size: 0.75rem; color: var(--muted); }
+}
+
+@media (max-width: 600px) {
+  .notebook-home .home-about {
+    grid-template-columns: minmax(0, 1fr) 6.5rem;
+    gap: 1.25rem;
+    h1 { align-self: center; }
+    .home-bio { grid-column: 1 / -1; }
+    .home-portrait { grid-row: 1; }
+  }
+  .notebook-home .news-list {
+    li { grid-template-columns: 1fr; gap: 0.2rem; margin-bottom: 1.25rem; }
+    time { padding-top: 0; }
+  }
+}
+
+.cv-page {
+  .cv-download { font-size: 1rem; margin-bottom: 0.35rem; }
+  .cv-updated { font-size: 0.8125rem; color: var(--muted); }
+  .cv-section { margin-top: 2.5rem; }
+  .cv-section > h2 { font-size: 1.6rem; margin: 0 0 1.25rem; }
+  #cv-papers > section > h3 { margin: 1.5rem 0 0.75rem; font-size: 1.1rem; }
+  .cv-entries {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    > li { display: grid; grid-template-columns: 8rem minmax(0, 1fr); gap: 1.25rem; margin: 0 0 1.5rem; }
+    h3 { margin: 0 0 0.25rem; font-size: 1rem; line-height: 1.5; }
+    p { margin: 0 0 0.25rem; font-size: 1rem; }
+    .cv-period { font-size: 0.875rem; color: var(--muted); }
+    .cv-detail { font-size: 0.9rem; }
+  }
+  .paper-list > li { padding: 1rem 0; }
+  .paper-list > li h4 { margin: 0 0 0.5rem; font-size: 1.15rem; line-height: 1.4; }
+}
+
+.notebook-site {
+  .blog-intro { color: var(--muted); }
+  .blog-empty { margin: 2.5rem 0; padding: 1rem 0 1rem 1.25rem; border-left: 2px solid var(--rule); }
+  .blog-empty p { margin: 0; font-size: 1rem; }
+  .blog-empty .blog-empty-title { color: var(--ink); font-size: 1.2rem; margin-bottom: 0.5rem; }
+  .blog-empty p:last-child, .blog-empty-inline { color: var(--muted); }
+  .blog-posts { list-style: none; padding: 0; margin: 0; }
+  .blog-posts > li { padding: 1.5rem 0; border-bottom: 1px solid var(--rule); }
+  .blog-posts > li:last-child { border-bottom: 0; }
+  .blog-posts h2, .blog-posts h3 { font-family: var(--notebook-serif); font-size: 1.4rem; font-weight: 400; margin: 0.4rem 0 0.6rem; line-height: 1.4; }
+  .blog-posts h2 a, .blog-posts h3 a { text-decoration: none; }
+  .blog-posts h2 a:hover, .blog-posts h3 a:hover { text-decoration: underline; }
+  .blog-post-meta, .blog-feed { color: var(--muted); font-size: 0.8125rem; margin-bottom: 0.5rem; }
+  .blog-post-summary { font-size: 1rem; margin-bottom: 0; }
+  .blog-back { margin-top: 2.5rem; font-size: 0.9rem; }
 }
 
 @media (max-width: 760px) {
@@ -325,20 +383,30 @@ html {
     .notebook-nav, #main, .page__footer { width: calc(100% - 2.5rem); }
     .notebook-nav { display: grid; grid-template-columns: 1fr auto; gap: 0.35rem 1rem; padding: 0.75rem 0; }
     .nav-links { grid-column: 1 / -1; grid-row: 2; gap: 1.5rem; flex-wrap: wrap; }
-    .theme-toggle { grid-column: 2; grid-row: 1; }
+    .nav-tools { grid-column: 2; grid-row: 1; gap: 0.25rem; }
+    .language-switch { gap: 0.125rem; }
     #main { margin-top: 2.5rem; }
     .page__title { font-size: 2.25rem; }
     .page__footer { margin-top: 3.5rem; }
   }
   .notebook-home {
-    .notebook-hero { margin-left: 0; }
-    .wide-break { display: none; }
-    .notebook-section { margin-top: 3.25rem; }
-    .theme-grid { grid-template-columns: 1fr; gap: 2rem; }
-    .research-theme { max-width: 65ch; }
-    .blackboard-section { padding: 1.25rem; }
-    .blackboard-list li { grid-template-columns: 1.5rem minmax(0, 1fr); gap: 0.75rem; }
-    .blackboard-list li p { font-size: 1.2rem; }
+    .notebook-nav { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .nav-links { gap: 0.5rem; flex-wrap: nowrap; }
+    .nav-tools { margin-left: auto; flex-shrink: 0; }
+    .home-section { margin-top: 2.25rem; }
+    .contact-list li { grid-template-columns: 4rem minmax(0, 1fr); gap: 0.5rem; }
+  }
+  .cv-page .cv-entries > li { grid-template-columns: 1fr; gap: 0.2rem; }
+}
+
+@media (max-width: 380px) {
+  .notebook-home {
+    .notebook-nav { gap: 0.25rem; }
+    .nav-links { font-size: 0.8125rem; gap: 0.375rem; }
+  }
+  .notebook-site .notebook-nav {
+    .site-name { font-size: 1.125rem; }
+    .language-switch { font-size: 0.75rem; }
   }
 }
 
@@ -366,7 +434,5 @@ html {
     background: white;
     .skip-link, .theme-toggle { display: none; }
     #main { width: 100%; max-width: none; margin: 0; }
-    .notebook-hero { margin-left: 0; }
-    .blackboard-section { background: none; }
   }
 }

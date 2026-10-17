@@ -4,6 +4,12 @@
 
 {% include seo.html %}
 
+{% if page.home or page.translation_zh %}
+<link rel="alternate" hreflang="zh-CN" href="{{ page.translation_zh | default: '/' | prepend: base_path }}">
+<link rel="alternate" hreflang="en" href="{{ page.translation_en | default: '/en/' | prepend: base_path }}">
+<link rel="alternate" hreflang="x-default" href="{{ page.translation_zh | default: '/' | prepend: base_path }}">
+{% endif %}
+
 <link href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ base_path }}/feed.xml{% endif %}" type="application/atom+xml" rel="alternate" title="{{ site.title }} Feed">
 
 <!-- http://t.co/dKP3o1e -->

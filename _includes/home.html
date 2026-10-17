@@ -1,0 +1,55 @@
+{% include base_path %}
+{% assign ui = site.data.i18n[page.lang] | default: site.data.i18n.en %}
+
+<section class="home-about" aria-labelledby="about-title">
+  <h1 id="about-title">{{ page.title | escape }}</h1>
+  <div class="home-bio">
+    <p>{{ ui.affiliation }}</p>
+    <p>{{ ui.interests | escape }}</p>
+    <p>{{ ui.background | escape }}</p>
+  </div>
+  {% if site.author.avatar %}
+  <figure class="home-portrait">
+    <img src="{{ site.author.avatar | prepend: '/images/' | prepend: base_path }}" width="1279" height="1706" alt="{% if page.lang == 'zh-CN' %}{{ site.author.name_zh | escape }}的照片{% else %}Portrait of {{ site.author.name | escape }}{% endif %}" fetchpriority="high" decoding="async">
+  </figure>
+  {% endif %}
+</section>
+
+{% if site.data.news.size > 0 %}
+<section class="home-section" aria-labelledby="recent-news">
+  <h2 id="recent-news">{{ ui.news | escape }}</h2>
+  <ul class="news-list" role="list">
+    {% for item in site.data.news limit:5 %}
+    {% assign news_item = item[page.lang] | default: item.en %}
+    <li>
+      <time datetime="{{ item.date | escape }}">{{ news_item.date | escape }}</time>
+      <p>{{ news_item.text | escape }}{% if item.paper_url %} <a href="{{ item.paper_url | prepend: base_path }}">{{ ui.news_related_paper | escape }}</a>{% endif %}</p>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
+
+{% assign selected_papers = site.publications | where: "selected", true | sort: "selected_order" %}
+{% if selected_papers.size > 0 %}
+<section class="home-section" aria-labelledby="selected-papers">
+  <h2 id="selected-papers">{{ ui.selected_papers | escape }}</h2>
+  {% include paper-list.html papers=selected_papers compact_status=true hide_excerpt=true %}
+  <p class="section-link"><a href="{{ base_path }}{% if page.lang == 'en' %}/en{% endif %}/research/">{{ ui.all_papers | escape }} &rarr;</a></p>
+</section>
+{% endif %}
+
+<section class="home-section" aria-labelledby="blog-updates">
+  <h2 id="blog-updates">{{ ui.blog | escape }}</h2>
+  {% include blog-list.html limit=3 heading_level='h3' compact=true %}
+  <p class="section-link"><a href="{{ base_path }}{% if page.lang == 'en' %}/en{% endif %}/blog/">{{ ui.blog_all_posts | escape }} &rarr;</a></p>
+</section>
+
+<section class="home-section home-contact" aria-labelledby="contact">
+  <h2 id="contact">{{ ui.contact | escape }}</h2>
+  <ul class="contact-list" role="list">
+    {% if site.author.email %}<li><span class="contact-label">{{ ui.email | escape }}</span><a href="mailto:{{ site.author.email | escape }}">{{ site.author.email | escape }}</a></li>{% endif %}
+    {% if site.author.github %}<li><span class="contact-label">GitHub</span><a href="https://github.com/{{ site.author.github | escape }}">{{ site.author.github | escape }}</a></li>{% endif %}
+    <li><span class="contact-label">{% if page.lang == 'zh-CN' %}简历{% else %}CV{% endif %}</span><a href="{{ base_path }}{% if page.lang == 'en' %}/en{% endif %}/cv/">{{ ui.cv | escape }}</a></li>
+  </ul>
+</section>
