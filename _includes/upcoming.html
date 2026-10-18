@@ -1,0 +1,17 @@
+{% assign today = site.time | date: '%Y-%m-%d' %}
+{% assign upcoming_events = site.data.events | where_exp: 'event', 'event.end_date >= today' | sort: 'start_date' %}
+{% if upcoming_events.size > 0 %}
+<section class="home-section" aria-labelledby="upcoming-title">
+  <h2 id="upcoming-title">{{ ui.upcoming | escape }}</h2>
+  <ul class="upcoming-list" role="list">
+    {% for event in upcoming_events limit:2 %}
+    {% assign event_text = event[page.lang] | default: event.en %}
+    <li>
+      <p><strong><a href="{{ event.url | escape }}">{{ event_text.name | escape }}</a></strong> · {{ event_text.place | escape }}</p>
+      <p><time datetime="{{ event.start_date | escape }}">{{ event_text.start_label | escape }}</time>{{ event_text.date_separator | escape }}<time datetime="{{ event.end_date | escape }}">{{ event_text.end_label | escape }}</time> · {{ event_text.format | escape }}</p>
+      <p>{{ event_text.presenting | escape }}: <a href="{{ event_text.paper_url | prepend: base_path }}" lang="en">{{ event_text.paper_title | escape }}</a></p>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}

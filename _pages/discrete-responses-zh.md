@@ -16,3 +16,5 @@ description: "关于离散响应高维模型中异质来源信息的选择性利
 本文于2025年10月16日在线发表。<span lang="en">Zejing Zheng</span> 与 <span lang="en">Shengbing Zheng</span> 对本文作出同等贡献。
 
 本文研究稀疏高维离散响应模型中，如何有选择地利用异质来源总体的信息。通过观测层面的筛选与重要性加权进行目标总体的参数估计。理论保证取决于可用的来源信息、权重估计误差及文中给定的条件。
+
+{% include paper-illustration.html id="discrete-responses" %}

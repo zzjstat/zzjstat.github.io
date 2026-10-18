@@ -19,6 +19,7 @@ paperurl: "https://doi.org/10.1016/j.csda.2025.108292"
 bibtexurl: /files/bibtex/discrete-responses.bib
 selected: true
 selected_order: 1
+illustration_id: discrete-responses
 excerpt: "Observation-level selection and importance weighting for estimating high-dimensional target models with discrete responses using heterogeneous source data."
 ---
 
@@ -27,3 +28,5 @@ excerpt: "Observation-level selection and importance weighting for estimating hi
 Available online since 16 October 2025. Zejing Zheng and Shengbing Zheng contributed equally.
 
 The paper studies selective borrowing from heterogeneous source populations in sparse, high-dimensional models with discrete responses. Observation-level selection and importance weighting support estimation for a target population. The theoretical guarantees depend on usable source information, weight-estimation error, and stated conditions.
+
+{% include paper-illustration.html id="discrete-responses" %}

@@ -1,0 +1,25 @@
+{% assign paper_illustration = site.data.paper_illustrations[include.id] %}
+{% assign paper_illustration_text = paper_illustration[page.lang] | default: paper_illustration.en %}
+{% assign paper_illustration_id = include.id | prepend: 'paper-illustration-' %}
+{% if paper_illustration and paper_illustration_text %}
+<section class="paper-illustration" id="paper-illustration" aria-labelledby="{{ paper_illustration_id }}-title">
+  <h2 id="{{ paper_illustration_id }}-title">{{ paper_illustration_text.heading | escape }}</h2>
+  <p class="paper-illustration__lead">{{ paper_illustration_text.lead | escape }}</p>
+  <figure>
+    <div class="paper-illustration__scroll" tabindex="0" role="region" aria-label="{{ paper_illustration_text.scroll_label | escape }}">
+      <a href="{{ paper_illustration.image | relative_url }}" data-paper-illustration target="_blank" rel="noopener noreferrer" aria-label="{{ paper_illustration_text.open_label | escape }}">
+        <img class="paper-illustration__image" src="{{ paper_illustration.image | relative_url }}" width="{{ paper_illustration.width }}" height="{{ paper_illustration.height }}" alt="{{ paper_illustration_text.alt | escape }}" aria-describedby="{{ paper_illustration_id }}-caption {{ paper_illustration_id }}-explanation" loading="lazy" decoding="async">
+      </a>
+    </div>
+    <p class="paper-illustration__hint">{{ paper_illustration_text.hint | escape }}</p>
+    <figcaption id="{{ paper_illustration_id }}-caption">
+      <p>{{ paper_illustration_text.caption | escape }}</p>
+    </figcaption>
+  </figure>
+  <div class="paper-illustration__explanation" id="{{ paper_illustration_id }}-explanation">
+    <p><strong>{{ paper_illustration_text.question_label | escape }}{{ paper_illustration_text.label_separator | escape }}</strong>{{ paper_illustration_text.question | escape }}</p>
+    <p><strong>{{ paper_illustration_text.approach_label | escape }}{{ paper_illustration_text.label_separator | escape }}</strong>{{ paper_illustration_text.approach | escape }}</p>
+    <p><strong>{{ paper_illustration_text.reading_label | escape }}{{ paper_illustration_text.label_separator | escape }}</strong>{{ paper_illustration_text.reading | escape }}</p>
+  </div>
+</section>
+{% endif %}

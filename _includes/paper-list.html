@@ -4,6 +4,11 @@
 <ul class="paper-list" role="list">
   {% for paper in include.papers %}
   {% assign paper_url = paper.url %}
+  {% assign illustration_text = nil %}
+  {% if include.show_illustration and paper.illustration_id %}
+    {% assign illustration = site.data.paper_illustrations[paper.illustration_id] %}
+    {% assign illustration_text = illustration[page.lang] | default: illustration.en %}
+  {% endif %}
   {% if page.lang == 'zh-CN' and paper.translation_zh %}{% assign paper_url = paper.translation_zh %}{% endif %}
   <li>
     <article>
@@ -20,8 +25,10 @@
       {% assign paper_category = site.publication_category[paper.category] %}
       {% if paper_category %}<p class="paper-metadata">{% if include.compact_status and paper.category == 'publications' %}{{ ui.published | escape }}{% elsif include.compact_status and paper.category == 'preprints' %}{{ ui.preprint | escape }}{% else %}{{ ui.categories[paper.category] | default: paper_category.title | escape }}{% endif %}{% if paper.submission_status %} · {{ ui.submission_statuses[paper.submission_status] | default: paper.submission_status | escape }}{% endif %}{% unless paper.undated %}{% if paper.year %} · {{ paper.year | escape }}{% elsif paper.date %} · {{ paper.date | date: "%Y" }}{% endif %}{% endunless %}{% if paper.venue %} · <span lang="en">{{ paper.venue | escape }}</span>{% endif %}</p>{% endif %}
       {% unless include.hide_excerpt %}{% if paper.excerpt %}{{ paper.excerpt | markdownify }}{% endif %}{% endunless %}
-      {% if paper.paperurl or paper.slidesurl or paper.bibtexurl %}
+      {% if illustration_text.summary %}<p class="paper-summary">{{ illustration_text.summary | escape }}</p>{% endif %}
+      {% if paper.paperurl or paper.slidesurl or paper.bibtexurl or illustration_text %}
       <p class="paper-links">
+        {% if illustration_text %}<a href="{{ paper_url | prepend: base_path }}#paper-illustration">{{ ui.paper_illustration | escape }} &rarr;</a>{% endif %}
         {% if paper.paperurl %}<a href="{{ paper.paperurl | escape }}">{% if paper.category == 'preprints' and paper.paperurl contains 'arxiv.org' %}arXiv{% else %}{{ ui.paper | escape }}{% endif %}<span class="visually-hidden" lang="en">: {{ paper.title | escape }}</span></a>{% endif %}
         {% if paper.slidesurl %}<a href="{{ paper.slidesurl | escape }}">{{ ui.slides | escape }}</a>{% endif %}
         {% if paper.bibtexurl %}<a href="{% unless paper.bibtexurl contains '://' %}{{ base_path }}{% endunless %}{{ paper.bibtexurl | escape }}" download>BibTeX<span class="visually-hidden" lang="en">: {{ paper.title | escape }}</span></a>{% endif %}

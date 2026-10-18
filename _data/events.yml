@@ -1,0 +1,24 @@
+- id: national-probability-statistics-2026
+  url: https://35425.scimeeting.cn/cn/web/index/35425
+  start_date: "2026-10-29"
+  end_date: "2026-11-01"
+  en:
+    name: 14th National Conference on Probability and Statistics
+    place: Nanchang, China
+    start_label: 29 October
+    end_label: 1 November 2026
+    date_separator: "–"
+    format: Talk in a parallel session
+    presenting: Presenting
+    paper_title: Transfer Learning with Heterogeneous Feature Spaces in Linear Regression
+    paper_url: /publications/heterogeneous-feature-spaces/
+  zh-CN:
+    name: 第十四届全国概率统计会议
+    place: 南昌
+    start_label: 2026年10月29日
+    end_label: 11月1日
+    date_separator: "—"
+    format: 分组报告
+    presenting: 报告内容
+    paper_title: Transfer Learning with Heterogeneous Feature Spaces in Linear Regression
+    paper_url: /zh/publications/heterogeneous-feature-spaces/

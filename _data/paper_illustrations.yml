@@ -1,0 +1,73 @@
+discrete-responses:
+  image: /images/paper-illustrations/discrete-responses.png
+  width: 1774
+  height: 887
+  en:
+    summary: "Observation-level selection and importance weighting for estimating high-dimensional target models with discrete responses using heterogeneous source data."
+    heading: "The question and the method"
+    lead: "Which source observations can inform a target model with discrete responses?"
+    hint: "Scroll horizontally on a small screen. Click the figure to enlarge."
+    open_label: "Enlarge the method illustration"
+    scroll_label: "Scrollable method illustration for transfer learning with discrete responses"
+    caption: "Selected and importance-weighted source observations are combined with target data to estimate the target model."
+    question_label: "Question"
+    approach_label: "Approach"
+    reading_label: "Reading the figure"
+    label_separator: ": "
+    question: "How can heterogeneous source data inform a high-dimensional model with discrete responses when target data are limited?"
+    approach: "Select source observations and use importance weighting to adjust their contribution to target estimation, alongside the target observations."
+    reading: "Colors distinguish the target and source populations. Larger source points illustrate greater weights; faded source points are not selected. Target observations retain equal weights. Point and variable counts are schematic."
+    alt: "Concept diagram: limited target data and heterogeneous source data lead to observation-level source selection and importance weighting, then target model estimation."
+  zh-CN:
+    summary: "通过观测层面的筛选与重要性加权，利用异质来源数据估计高维离散响应目标模型。"
+    heading: "研究问题与方法图解"
+    lead: "哪些来源观测可以用于估计离散响应目标模型？"
+    hint: "小屏幕可横向滚动阅读，点击图片可放大。"
+    open_label: "放大方法示意图"
+    scroll_label: "离散响应迁移学习方法示意图，可横向滚动"
+    caption: "来源观测经过筛选与重要性加权，与目标数据共同用于估计目标模型。"
+    question_label: "研究问题"
+    approach_label: "方法思路"
+    reading_label: "图中元素"
+    label_separator: "："
+    question: "目标样本有限时，如何利用与目标总体存在差异的来源数据，估计高维离散响应模型？"
+    approach: "在观测层面筛选来源信息，并通过重要性加权调整其在目标估计中的作用，再结合目标观测进行估计。"
+    reading: "颜色区分目标与不同来源；点代表观测。来源点的大小表示权重，淡化表示未选用；目标观测等权保留。图中点数和变量数仅作示意。"
+    alt: "方法示意图：少量目标数据与多个异质来源，通过来源观测层面的筛选与重要性加权，形成目标模型估计。"
+
+heterogeneous-feature-spaces:
+  image: /images/paper-illustrations/heterogeneous-features.png
+  width: 1774
+  height: 887
+  en:
+    summary: "Transfer learning for linear regression when source studies observe subsets of the variables available in a fully observed target study."
+    heading: "The question and the method"
+    lead: "How can studies inform target regression when they measure different variables?"
+    hint: "Scroll horizontally on a small screen. Click the figure to enlarge."
+    open_label: "Enlarge the method illustration"
+    scroll_label: "Scrollable method illustration for transfer learning with heterogeneous feature spaces"
+    caption: "Source studies measure different variable subsets. Feature alignment and selective borrowing incorporate their information into target regression."
+    question_label: "Question"
+    approach_label: "Approach"
+    reading_label: "Reading the figure"
+    label_separator: ": "
+    question: "How can source studies inform target linear regression when they measure only subsets of the target variables?"
+    approach: "Align feature spaces through projection-based imputation, then select and importance-weight source observations for estimation alongside the fully observed target data."
+    reading: "Columns represent variables: solid cells are observed, blank columns are unmeasured, and hatched cells are imputed. Source point sizes illustrate weights; target observations retain equal weights. Point and variable counts are schematic."
+    alt: "Concept diagram: a fully observed target study and source studies with different feature subsets lead to projection-based imputation, source observation selection and importance weighting, then target linear regression estimation."
+  zh-CN:
+    summary: "研究来源数据只观测部分目标变量时，如何利用这些信息进行目标线性回归估计。"
+    heading: "研究问题与方法图解"
+    lead: "不同研究测量的变量不同，如何共同用于目标回归估计？"
+    hint: "小屏幕可横向滚动阅读，点击图片可放大。"
+    open_label: "放大方法示意图"
+    scroll_label: "异质特征空间迁移学习方法示意图，可横向滚动"
+    caption: "来源研究测量不同的变量子集；先对齐特征空间，再选择性借用来源信息。"
+    question_label: "研究问题"
+    approach_label: "方法思路"
+    reading_label: "图中元素"
+    label_separator: "："
+    question: "来源研究只测量部分目标变量时，如何将这些数据用于目标线性回归估计？"
+    approach: "通过投影插补对齐各研究的特征空间，再对来源观测进行筛选与重要性加权，结合变量完整的目标数据进行估计。"
+    reading: "矩阵的列代表变量：实色为实测，空白为未测量，斜线为插补值。点的大小示意来源权重，目标观测等权保留；点数和变量数仅作示意。"
+    alt: "方法示意图：变量完整的目标数据与各自观测不同变量子集的来源研究，通过投影插补对齐特征空间，再筛选来源观测并进行重要性加权，用于目标线性回归估计。"
