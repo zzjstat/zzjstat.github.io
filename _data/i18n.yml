@@ -12,11 +12,7 @@ en:
     CV: CV
   affiliation: 'I am a PhD student in Statistics at the School of Statistics, <a href="https://www.bnu.edu.cn">Beijing Normal University</a>, advised by <a href="https://stat.bnu.edu.cn/ywjl/232859.htm">Professor <strong>Junlong Zhao</strong></a>.'
   interests: My research interests include high-dimensional data, transfer learning, and network data.
-  bio_research: My research interests include high-dimensional statistics, transfer learning, and network data analysis. My current work studies how to share information selectively across heterogeneous datasets, especially when source and target populations differ or studies measure different variables. I use statistical theory and numerical experiments to understand when source information can help and how to limit negative transfer.
-  background: I received my B.S. in Statistics from Beijing Normal University in 2023 and began my doctoral studies there in the same year.
-  teaching_intro: 'I have served as a teaching assistant for Introduction to Statistics B and Nonparametric Statistics, with R programming instruction as part of my work on the introductory course. I share '
-  teaching_resource: R programming and statistical computing slides
-  teaching_outro: ' online as a resource for students and instructors.'
+  background: I received my B.S. in Statistics from Beijing Normal University in 2023.
   selected_papers: Selected papers
   upcoming: Upcoming
   paper_illustration: Illustration & paper details
@@ -70,11 +66,7 @@ zh-CN:
     CV: 简历
   affiliation: '我是<a href="https://www.bnu.edu.cn">北京师范大学</a>统计学院统计学博士研究生，导师是<a href="https://stat.bnu.edu.cn/ywjl/232859.htm"><strong>赵俊龙</strong>教授</a>。'
   interests: 我的研究兴趣包括高维数据、迁移学习与网络数据。
-  bio_research: 我的研究兴趣包括高维统计、迁移学习与网络数据分析。目前的工作主要研究异质数据之间的信息共享：当来源与目标总体存在差异，或不同研究测量的变量不一致时，如何有选择地利用来源信息，帮助目标总体上的统计估计。我结合统计理论与数值实验，考察来源信息何时有用，以及如何减少不恰当的信息借用造成的负迁移。
-  background: 我于2023年在北京师范大学获得统计学学士学位，并于同年进入博士阶段学习。
-  teaching_intro: 我曾担任《统计学导论 B》和《非参数统计》的助教，并在统计学导论课程中承担 R 语言教学。我整理的
-  teaching_resource: R 语言与统计计算课件
-  teaching_outro: 已公开，供学习和教学参考。
+  background: 我于2023年在北京师范大学获得统计学学士学位。
   selected_papers: 代表论文
   upcoming: 近期活动
   paper_illustration: 图解与论文介绍
