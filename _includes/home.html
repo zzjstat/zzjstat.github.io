@@ -5,7 +5,6 @@
   <h1 id="about-title">{{ page.title | escape }}{% if page.lang == 'en' and site.author.name_zh %}<span class="home-chinese-name" lang="zh-CN">（{{ site.author.name_zh | escape }}）</span>{% endif %}</h1>
   <div class="home-bio">
     <p>{{ ui.affiliation }}</p>
-    <p>{{ ui.interests | escape }}</p>
     <p>{{ ui.background | escape }}</p>
   </div>
   {% if site.author.avatar %}
@@ -13,6 +12,11 @@
     <img src="{{ site.author.avatar | prepend: '/images/' | prepend: base_path }}" width="1279" height="1706" alt="{% if page.lang == 'zh-CN' %}{{ site.author.name_zh | escape }}的照片{% else %}Portrait of {{ site.author.name | escape }}{% endif %}" fetchpriority="high" decoding="async">
   </figure>
   {% endif %}
+  {% assign teaching_resource = site.data.resources.r_slides[page.lang] | default: site.data.resources.r_slides.en %}
+  <div class="home-bio-details">
+    <p>{{ ui.bio_research | escape }}</p>
+    <p>{{ ui.teaching_intro | escape }}<a href="{{ teaching_resource.url | default: site.data.resources.r_slides.url | escape }}">{{ ui.teaching_resource | escape }}</a>{{ ui.teaching_outro | escape }}</p>
+  </div>
 </section>
 
 {% include upcoming.html %}

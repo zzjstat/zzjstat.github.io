@@ -281,6 +281,9 @@ html {
     p { max-width: 65ch; margin-bottom: 1rem; }
     .home-bio { grid-column: 1; grid-row: 2; min-width: 0; }
     .home-bio p:last-child { margin-bottom: 0; }
+    .home-bio-details { grid-column: 1 / -1; grid-row: 3; min-width: 0; }
+    .home-bio-details p { max-width: none; }
+    .home-bio-details p:last-child { margin-bottom: 0; }
     .home-portrait {
       display: block;
       grid-column: 2;
@@ -358,6 +361,7 @@ html {
     h1 { order: 1; flex: 1 1 9rem; min-width: 0; max-width: 100%; align-self: center; }
     .home-portrait { order: 2; flex: 0 0 6.5rem; max-width: 104px; }
     .home-bio { order: 3; flex-basis: 100%; }
+    .home-bio-details { order: 4; flex-basis: 100%; }
   }
   .notebook-home .news-list {
     li { grid-template-columns: 1fr; gap: 0.2rem; margin-bottom: 1.25rem; }
