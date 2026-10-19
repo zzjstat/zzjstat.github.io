@@ -17,13 +17,14 @@ year: 2026
 venue: "Computational Statistics & Data Analysis, 215, 108292"
 paperurl: "https://doi.org/10.1016/j.csda.2025.108292"
 bibtexurl: /files/bibtex/discrete-responses.bib
+slidesurl: /files/slides/discrete-responses.pdf
 selected: true
 selected_order: 1
 illustration_id: discrete-responses
 excerpt: "Observation-level selection and importance weighting for estimating high-dimensional target models with discrete responses using heterogeneous source data."
 ---
 
-**Published article.** Zejing Zheng, Shengbing Zheng, and Junlong Zhao. *Transfer learning for high dimensional data with discrete responses*. *Computational Statistics & Data Analysis*, **215**, 108292, March 2026. [Published article](https://doi.org/10.1016/j.csda.2025.108292) · [BibTeX]({{ '/files/bibtex/discrete-responses.bib' | relative_url }}).
+**Published article.** Zejing Zheng, Shengbing Zheng, and Junlong Zhao. *Transfer learning for high dimensional data with discrete responses*. *Computational Statistics & Data Analysis*, **215**, 108292, March 2026. [Published article](https://doi.org/10.1016/j.csda.2025.108292) · [Slides (PDF)]({{ '/files/slides/discrete-responses.pdf' | relative_url }}) · [BibTeX]({{ '/files/bibtex/discrete-responses.bib' | relative_url }}).
 
 Available online since 16 October 2025. Zejing Zheng and Shengbing Zheng contributed equally.
 

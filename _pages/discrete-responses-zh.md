@@ -11,7 +11,7 @@ translation_en: /publications/discrete-responses/
 description: "关于离散响应高维模型中异质来源信息的选择性利用与重要性加权的论文介绍。"
 ---
 
-**已发表论文。** <span lang="en">Zejing Zheng, Shengbing Zheng, and Junlong Zhao. <em>Transfer learning for high dimensional data with discrete responses</em>. <em>Computational Statistics &amp; Data Analysis</em>, <strong>215</strong>, 108292</span>，2026年3月。[期刊论文](https://doi.org/10.1016/j.csda.2025.108292) · [BibTeX]({{ '/files/bibtex/discrete-responses.bib' | relative_url }})。
+**已发表论文。** <span lang="en">Zejing Zheng, Shengbing Zheng, and Junlong Zhao. <em>Transfer learning for high dimensional data with discrete responses</em>. <em>Computational Statistics &amp; Data Analysis</em>, <strong>215</strong>, 108292</span>，2026年3月。[期刊论文](https://doi.org/10.1016/j.csda.2025.108292) · [幻灯片（PDF）]({{ '/files/slides/discrete-responses.pdf' | relative_url }}) · [BibTeX]({{ '/files/bibtex/discrete-responses.bib' | relative_url }})。
 
 本文于2025年10月16日在线发表。<span lang="en">Zejing Zheng</span> 与 <span lang="en">Shengbing Zheng</span> 对本文作出同等贡献。
 
