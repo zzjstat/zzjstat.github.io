@@ -70,6 +70,8 @@
   <ul class="contact-list" role="list">
     {% if site.author.email %}<li><span class="contact-label">{{ ui.email | escape }}</span><a href="mailto:{{ site.author.email | escape }}">{{ site.author.email | escape }}</a></li>{% endif %}
     {% if site.author.github %}<li><span class="contact-label">GitHub</span><a href="https://github.com/{{ site.author.github | escape }}">{{ site.author.github | escape }}</a></li>{% endif %}
+    {% if site.author.googlescholar %}<li><span class="contact-label">Scholar</span><a href="{{ site.author.googlescholar | escape }}">Google Scholar</a></li>{% endif %}
+    {% if site.author.orcid %}<li><span class="contact-label">ORCID</span><a href="{{ site.author.orcid | escape }}">{{ site.author.orcid | split: '/' | last | escape }}</a></li>{% endif %}
     <li><span class="contact-label">{% if page.lang == 'zh-CN' %}简历{% else %}CV{% endif %}</span><a href="{{ base_path }}{% if page.lang == 'en' %}/en{% endif %}/cv/">{{ ui.cv | escape }}</a></li>
   </ul>
 </section>

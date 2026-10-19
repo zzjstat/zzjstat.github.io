@@ -32,6 +32,8 @@ author:
 
   # Use usernames here; the template supplies the GitHub URL.
   github           : "zzjstat"
+  googlescholar    : "https://scholar.google.com/citations?user=Vaae7eEAAAAJ&hl=zh-CN"
+  orcid            : "https://orcid.org/0009-0001-7508-3168"
 
 # Publication Category - The following the list of publication categories and their headings
 publication_category:
