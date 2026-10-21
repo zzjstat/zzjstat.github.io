@@ -354,6 +354,15 @@ html {
     margin: 0 auto;
     img { display: block; max-width: 100%; height: auto; margin: 0 auto; }
   }
+  .visitor-controls {
+    max-width: 24rem;
+    margin: 0.75rem auto 0;
+    font-size: 0.8125rem;
+    color: var(--muted);
+    label { display: inline-flex; align-items: flex-start; gap: 0.5rem; cursor: pointer; }
+    input { flex-shrink: 0; margin: 0.3rem 0 0; }
+    p { margin: 0.5rem 0 0; }
+  }
 }
 
 @media (max-width: 600px) {

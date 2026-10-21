@@ -33,6 +33,10 @@ en:
   contact: Contact & links
   visitors: Visitors
   visitor_map_alt: World map showing approximate visitor locations
+  visitor_exclude_browser: Exclude this browser
+  visitor_excluded: Visits from this browser are excluded.
+  visitor_statistics: View visitor statistics
+  visitor_storage_warning: Your browser could not save this setting. It applies to this page only.
   email: Email
   cv: Curriculum vitae
   published: Published
@@ -90,6 +94,10 @@ zh-CN:
   contact: 联系方式与链接
   visitors: 访客分布
   visitor_map_alt: 访客大致来源地区的世界地图
+  visitor_exclude_browser: 排除此浏览器
+  visitor_excluded: 已排除此浏览器的访问。
+  visitor_statistics: 查看访问统计
+  visitor_storage_warning: 浏览器无法保存此设置，仅在当前页面生效。
   email: 邮箱
   cv: 个人简历
   published: 已发表

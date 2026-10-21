@@ -1,4 +1,52 @@
-/* Optional color switching and figure enlargement; navigation works without JavaScript. */
+/* Optional enhancements; navigation works without JavaScript. */
+(() => {
+  const checkbox = document.querySelector('[data-visitor-exclude]');
+  if (!checkbox) return;
+  const key = 'zzjstat:exclude-visitor-tracking';
+  const controls = document.querySelector('.visitor-controls');
+  const map = document.querySelector('[data-visitor-map]');
+  const image = map.querySelector('[data-visitor-map-src]');
+  const excludedMessage = document.querySelector('[data-visitor-excluded]');
+  const storageWarning = document.querySelector('[data-visitor-storage-warning]');
+  let excluded = true;
+  let canSave = true;
+
+  try { excluded = localStorage.getItem(key) === '1'; }
+  catch (error) { canSave = false; }
+
+  function render() {
+    checkbox.checked = excluded;
+    map.hidden = excluded;
+    excludedMessage.hidden = !excluded;
+    storageWarning.hidden = canSave;
+    if (excluded) image.removeAttribute('src');
+    else if (!image.hasAttribute('src')) image.src = image.dataset.visitorMapSrc;
+    controls.hidden = false;
+  }
+
+  checkbox.addEventListener('change', () => {
+    excluded = checkbox.checked;
+    try {
+      if (excluded) localStorage.setItem(key, '1');
+      else localStorage.removeItem(key);
+      canSave = true;
+    } catch (error) { canSave = false; }
+    render();
+  });
+  window.addEventListener('storage', event => {
+    if (event.key !== key && event.key !== null) return;
+    try {
+      excluded = localStorage.getItem(key) === '1';
+      canSave = true;
+    } catch (error) {
+      excluded = true;
+      canSave = false;
+    }
+    render();
+  });
+  render();
+})();
+
 (() => {
   const root = document.documentElement;
   const button = document.getElementById('theme-toggle');

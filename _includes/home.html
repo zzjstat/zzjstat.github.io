@@ -80,6 +80,12 @@
 <section class="home-section home-visitors" aria-labelledby="visitors-title">
   <h2 id="visitors-title">{{ ui.visitors | escape }}</h2>
   <div class="visitor-map">
-    <a href="https://mapmyvisitors.com/web/1c8zy" title="{{ ui.visitors | escape }}"><img src="https://mapmyvisitors.com/map.png?d=6JkOzvz4R10PVwqMxYboVjZtXMVQqgqflgdQZ0I5kQQ&amp;cl=ffffff&amp;w=384" width="384" height="211" alt="{{ ui.visitor_map_alt | escape }}" decoding="async"></a>
+    <a data-visitor-map hidden href="https://mapmyvisitors.com/web/1c8zy" title="{{ ui.visitors | escape }}"><img data-visitor-map-src="https://mapmyvisitors.com/map.png?d=6JkOzvz4R10PVwqMxYboVjZtXMVQqgqflgdQZ0I5kQQ&amp;cl=ffffff&amp;w=384" width="384" height="211" alt="{{ ui.visitor_map_alt | escape }}" decoding="async"></a>
   </div>
+  <div class="visitor-controls" hidden>
+    <label><input type="checkbox" data-visitor-exclude> <span>{{ ui.visitor_exclude_browser | escape }}</span></label>
+    <p data-visitor-excluded hidden>{{ ui.visitor_excluded | escape }} <a href="https://mapmyvisitors.com/web/1c8zy">{{ ui.visitor_statistics | escape }}</a></p>
+    <p data-visitor-storage-warning hidden>{{ ui.visitor_storage_warning | escape }}</p>
+  </div>
+  <noscript><p><a href="https://mapmyvisitors.com/web/1c8zy">{{ ui.visitor_statistics | escape }}</a></p></noscript>
 </section>
