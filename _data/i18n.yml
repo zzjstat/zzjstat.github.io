@@ -31,6 +31,8 @@ en:
   blog_chinese: 中文
   blog_english: English
   contact: Contact & links
+  visitors: Visitors
+  visitor_map_alt: World map showing approximate visitor locations
   email: Email
   cv: Curriculum vitae
   published: Published
@@ -86,6 +88,8 @@ zh-CN:
   blog_chinese: 中文
   blog_english: English
   contact: 联系方式与链接
+  visitors: 访客分布
+  visitor_map_alt: 访客大致来源地区的世界地图
   email: 邮箱
   cv: 个人简历
   published: 已发表

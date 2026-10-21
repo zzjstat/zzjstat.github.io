@@ -348,6 +348,12 @@ html {
     a { justify-self: start; min-width: 0; max-width: 100%; overflow-wrap: anywhere; }
   }
   .notes-list time { font-family: var(--notebook-mono); font-size: 0.75rem; color: var(--muted); }
+  .visitor-map {
+    width: 100%;
+    max-width: 24rem;
+    margin: 0 auto;
+    img { display: block; max-width: 100%; height: auto; margin: 0 auto; }
+  }
 }
 
 @media (max-width: 600px) {

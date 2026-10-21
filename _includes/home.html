@@ -76,3 +76,10 @@
     <li><span class="contact-label">{% if page.lang == 'zh-CN' %}简历{% else %}CV{% endif %}</span><a href="{{ base_path }}{% if page.lang == 'en' %}/en{% endif %}/cv/">{{ ui.cv | escape }}</a></li>
   </ul>
 </section>
+
+<section class="home-section home-visitors" aria-labelledby="visitors-title">
+  <h2 id="visitors-title">{{ ui.visitors | escape }}</h2>
+  <div class="visitor-map">
+    <a href="https://mapmyvisitors.com/web/1c8zy" title="{{ ui.visitors | escape }}"><img src="https://mapmyvisitors.com/map.png?d=6JkOzvz4R10PVwqMxYboVjZtXMVQqgqflgdQZ0I5kQQ&amp;cl=ffffff&amp;w=384" width="384" height="211" alt="{{ ui.visitor_map_alt | escape }}" decoding="async"></a>
+  </div>
+</section>
